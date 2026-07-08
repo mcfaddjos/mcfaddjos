@@ -1,0 +1,4 @@
+# Large third-party data pulled from kadoa-org/congress-trading-monitor at
+# analysis time. Re-fetchable, not source -- don't commit multi-MB dumps.
+raw_data/
+output/
