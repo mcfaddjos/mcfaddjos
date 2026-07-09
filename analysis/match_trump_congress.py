@@ -24,8 +24,26 @@ from datetime import datetime, timedelta
 FILERS_PATH = "raw_data/filers.json"
 TRUMP_FILER_PATH = "raw_data/trump_filer.json"
 CONGRESS_FILER_GLOB = "raw_data/filers/*.json"
+TICKER_FALLBACK_PATH = "ticker_fallback.json"
 WINDOW_DAYS = 5
 TRUMP_FILER_ID = "oge_donald_trump"
+
+with open(TICKER_FALLBACK_PATH) as f:
+    TICKER_FALLBACK = {k.upper(): v for k, v in json.load(f).items()}
+
+
+def resolve_ticker(trade):
+    """The source dataset leaves ~86% of Trump's trades with no ticker
+    (mostly because its resolver dictionary doesn't cover them -- these
+    are mostly ordinary large-cap stocks, not exotic instruments). Fill
+    in the gap from a manually-built name->ticker map for the highest-
+    frequency unresolved names. Bonds/money-market funds/preferreds are
+    deliberately left unmapped -- they don't have a tradeable ticker."""
+    ticker = (trade.get("ticker") or "").upper().strip()
+    if ticker:
+        return ticker
+    name = (trade.get("asset_name") or "").upper().strip()
+    return TICKER_FALLBACK.get(name, "")
 
 
 def normalize_side(transaction_type):
@@ -81,7 +99,7 @@ def build_trump_index(trades):
             continue
         d = parse_date(t.get("transaction_date"))
         side = normalize_side(t.get("transaction_type"))
-        ticker = (t.get("ticker") or "").upper().strip()
+        ticker = resolve_ticker(t)
         if not d or not side or not ticker:
             continue
         idx[ticker][side].append(d)
@@ -120,7 +138,7 @@ def main():
         if not filer or filer.get("branch") != "congress":
             continue
         side = normalize_side(t.get("transaction_type"))
-        ticker = (t.get("ticker") or "").upper().strip()
+        ticker = resolve_ticker(t)
         d = parse_date(t.get("transaction_date"))
         if not side or not ticker or not d:
             continue
