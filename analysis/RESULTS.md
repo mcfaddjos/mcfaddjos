@@ -36,6 +36,31 @@ Two different signals are mixed together in "Matches" -- worth reading them apar
   than half the time. That's the pair worth a second look if you want to dig
   further -- not the volume leaders.
 
+## Widening the window: Khanna and McCaul
+
+Match count/rate for the two standout-by-rate members as the window widens:
+
+| Window | Ro Khanna | Michael McCaul |
+|---|---|---|
+| ±5 days | 49 matches (51.6%) | 30 matches (55.6%) |
+| ±10 days | 71 matches (74.7%) | 35 matches (64.8%) |
+| ±15 days | 86 matches (90.5%) | 40 matches (74.1%) |
+| ±20 days | 86 matches (90.5%) | 44 matches (81.5%) |
+
+Khanna **plateaus at 15 days** -- going wider finds zero additional matches.
+McCaul is still climbing slightly but flattening. This plateau is itself a
+useful diagnostic, and a caveat: past a certain window width, match rate stops
+measuring "close timing" and starts measuring "does this person trade Trump's
+typical basket of ~64 resolved tickers at all." Trump trades those names so
+often (2,415 trades / 64 tickers, roughly one trade per ticker every couple
+weeks) that almost anyone trading the same mega-caps will eventually match at
+a wide-enough window regardless of real correlation. Treat the ±5-day number
+as the more meaningful "tight timing" signal; ±15-20 days is closer to "trades
+a similar basket of stocks in general."
+
+Per-window full top-10 snapshots: `output/top10_matches_5d.json`,
+`_10d.json`, `_15d.json`, `_20d.json`.
+
 ## Read this before acting on it
 
 - **These are very likely routine managed-account trades, not signals.**
