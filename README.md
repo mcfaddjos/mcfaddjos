@@ -40,6 +40,26 @@ python3 -m http.server 8000
 then open `http://localhost:8000`. (Opening `index.html` directly by double-clicking
 mostly works too, but a local server avoids occasional browser quirks with `fetch`.)
 
+### Congress tab
+
+A leaderboard of Congress members, ranked by whichever metric is active in
+Settings → Tracking config:
+
+- **Timing match (raw)** — same ticker/direction as a Trump trade within N days.
+- **Timing match (chance-corrected)** — same, but only members whose match count
+  beats a permutation test (p<0.05). The raw version alone is misleading; this
+  one corrects for it.
+- **Trade performance** — ranked by median return-vs-market on their own
+  disclosed trades, independent of Trump.
+- **Committee/sector lift** — do their trades concentrate in their own
+  committees' sectors more than market-wide baseline predicts.
+
+"Follow" a member to see their recent disclosed trades on the Congress tab,
+with one-click "Quick buy" (into the paper portfolio) or "Log to journal."
+The underlying data (`js/congress-data.js`) is a static export from a one-time
+offline analysis — see `analysis/RESULTS.md` for methodology, data-quality
+caveats, and how to re-run/re-export it.
+
 ### Live prices (optional)
 
 Sign up for a free API key at [finnhub.io](https://finnhub.io), paste it into the

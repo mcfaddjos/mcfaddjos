@@ -20,7 +20,11 @@ function defaultState() {
     transactions: [], // { id, ts, symbol, side, shares, price, total }
     snapshots: [{ ts: Date.now(), value: STARTING_CASH }],
     journal: [], // { id, ts, title, note, symbol }
-    settings: { finnhubKey: "" },
+    followed: [], // array of filer_id (Congress tab)
+    settings: {
+      finnhubKey: "",
+      congressConfig: { rankBy: "timing", window: 5, chamber: "all", party: "all", minTrades: 0 },
+    },
   };
 }
 
@@ -29,7 +33,13 @@ function loadState() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
-    return Object.assign(defaultState(), parsed);
+    const merged = Object.assign(defaultState(), parsed);
+    merged.settings = Object.assign(defaultState().settings, parsed.settings || {});
+    merged.settings.congressConfig = Object.assign(
+      defaultState().settings.congressConfig,
+      (parsed.settings || {}).congressConfig || {}
+    );
+    return merged;
   } catch (e) {
     console.error("Failed to load state, starting fresh.", e);
     return defaultState();
@@ -150,6 +160,7 @@ function switchTab(name) {
     p.classList.toggle("active", p.id === `panel-${name}`);
   });
   if (name === "watchlist") renderWatchlist();
+  if (name === "congress") renderCongressPanel();
 }
 
 function renderStatBar() {
@@ -303,6 +314,197 @@ async function renderWatchlist() {
   renderHoldingsTable();
 }
 
+// ---------- rendering: congress panel ----------
+
+const CONGRESS_METRIC_INFO = {
+  timing: "Same ticker, same direction as a Trump trade, within the configured window. Raw count/rate -- easy to over-read on its own; see the chance-corrected metric before trusting a name here.",
+  permutation: "Members whose match count beats a random shuffle of their OWN trade dates (p<0.05, lower = stronger). Corrects the raw timing match for \"trades a lot\" / \"trades popular stocks\" effects.",
+  performance: "Ranked by median return-vs-market (excess_since) on their own disclosed trades -- independent of Trump entirely. Answers \"do their trades make money,\" not \"do they copy Trump.\"",
+  committee: "Ranked by lift: how much more their trades concentrate in their own committees' sectors than market-wide baseline predicts. Positive lift = trading their own jurisdiction more than chance would suggest.",
+};
+
+function congressConfig() {
+  return state.settings.congressConfig;
+}
+
+function getCongressLeaderboard() {
+  if (typeof CONGRESS_DATA === "undefined") return [];
+  const cfg = congressConfig();
+  let rows = [];
+
+  if (cfg.rankBy === "timing") {
+    rows = (CONGRESS_DATA.matches_by_window[String(cfg.window)] || []).map((r) => ({
+      ...r,
+      metricPrimary: `${r.match_count}`,
+      metricSecondary: `${r.match_rate}%`,
+    }));
+  } else if (cfg.rankBy === "permutation") {
+    rows = (CONGRESS_DATA.permutation_by_window[String(cfg.window)] || []).map((r) => ({
+      filer_id: r.filer_id,
+      name: r.name,
+      chamber: r.chamber,
+      party: r.party,
+      state: r.state,
+      total_trades: r.own_trades_used,
+      metricPrimary: `p=${r.p_value}`,
+      metricSecondary: `${r.observed_matches} matches`,
+    }));
+  } else if (cfg.rankBy === "performance") {
+    rows = CONGRESS_DATA.performance_leaderboard.map((r) => ({
+      filer_id: r.filer_id,
+      name: r.name,
+      chamber: r.chamber,
+      party: r.party,
+      state: r.state,
+      total_trades: r.trades_scored,
+      metricPrimary: r.median_decision_score,
+      metricSecondary: `avg ${r.avg_decision_score}`,
+    }));
+  } else if (cfg.rankBy === "committee") {
+    rows = CONGRESS_DATA.committee_conflicts.map((r) => ({
+      filer_id: r.filer_id,
+      name: r.name,
+      chamber: r.chamber,
+      party: r.party,
+      state: r.state,
+      total_trades: r.sector_tagged_trades,
+      metricPrimary: `${r.lift_pct > 0 ? "+" : ""}${r.lift_pct}`,
+      metricSecondary: `${r.in_jurisdiction_pct}% vs ${r.baseline_pct}% base`,
+    }));
+  }
+
+  return rows.filter((r) => {
+    if (cfg.chamber !== "all" && r.chamber !== cfg.chamber) return false;
+    if (cfg.party !== "all" && r.party !== cfg.party) return false;
+    if (cfg.minTrades && (r.total_trades || 0) < Number(cfg.minTrades)) return false;
+    return true;
+  });
+}
+
+function renderCongressPanel() {
+  const cfg = congressConfig();
+  const metricLabels = {
+    timing: "Timing match (raw)",
+    permutation: "Timing match (chance-corrected)",
+    performance: "Trade performance",
+    committee: "Committee/sector lift",
+  };
+  document.getElementById("congress-active-config").textContent =
+    `${metricLabels[cfg.rankBy]}, ${["timing", "permutation"].includes(cfg.rankBy) ? `±${cfg.window}d, ` : ""}` +
+    `chamber: ${cfg.chamber}, party: ${cfg.party}`;
+  document.getElementById("congress-metric-explainer").textContent = CONGRESS_METRIC_INFO[cfg.rankBy] || "";
+
+  const head = document.getElementById("congress-table-head");
+  const metricColLabel = {
+    timing: ["Matches", "Rate"],
+    permutation: ["p-value", "Matches"],
+    performance: ["Median score", "Avg"],
+    committee: ["Lift", "Detail"],
+  }[cfg.rankBy];
+  head.innerHTML = `<th>Name</th><th>Chamber</th><th>Party</th><th>${metricColLabel[0]}</th><th>${metricColLabel[1]}</th><th></th>`;
+
+  const rows = getCongressLeaderboard();
+  const body = document.getElementById("congress-leaderboard-body");
+  if (typeof CONGRESS_DATA === "undefined") {
+    body.innerHTML = `<tr><td colspan="6"><div class="empty-state">Congress data bundle (js/congress-data.js) didn't load.</div></td></tr>`;
+    return;
+  }
+  if (rows.length === 0) {
+    body.innerHTML = `<tr><td colspan="6"><div class="empty-state">No members match the current filters. Loosen them in Settings &rarr; Tracking config.</div></td></tr>`;
+    return;
+  }
+  body.innerHTML = rows
+    .map((r) => {
+      const isFollowed = state.followed.includes(r.filer_id);
+      return `<tr>
+        <td>${escapeHtml(r.name)}</td>
+        <td>${r.chamber || ""}</td>
+        <td>${r.party || ""}</td>
+        <td>${r.metricPrimary}</td>
+        <td>${r.metricSecondary}</td>
+        <td><button class="btn ${isFollowed ? "danger" : "secondary"}" data-follow-toggle="${r.filer_id}">${isFollowed ? "Unfollow" : "Follow"}</button></td>
+      </tr>`;
+    })
+    .join("");
+
+  body.querySelectorAll("[data-follow-toggle]").forEach((btn) => {
+    btn.addEventListener("click", () => handleFollowToggle(btn.dataset.followToggle));
+  });
+
+  renderFollowedSection();
+}
+
+function handleFollowToggle(filerId) {
+  const idx = state.followed.indexOf(filerId);
+  if (idx >= 0) state.followed.splice(idx, 1);
+  else state.followed.push(filerId);
+  saveState();
+  renderCongressPanel();
+  renderSettings();
+}
+
+function renderFollowedSection() {
+  const el = document.getElementById("followed-body");
+  if (typeof CONGRESS_DATA === "undefined" || state.followed.length === 0) {
+    el.innerHTML = `<div class="empty-state">Not following anyone yet. Hit "Follow" on someone in the leaderboard above.</div>`;
+    return;
+  }
+  el.innerHTML = state.followed
+    .map((filerId) => {
+      const member = CONGRESS_DATA.members[filerId];
+      const trades = CONGRESS_DATA.recent_trades[filerId] || [];
+      if (!member) return "";
+      const tradeRows = trades
+        .slice(0, 8)
+        .map((t) => {
+          const side = (t.type || "").toLowerCase().includes("purchase") ? "buy" : "sell";
+          return `<tr>
+            <td>${t.date || "?"}</td>
+            <td><span class="pill ${side}">${side}</span></td>
+            <td>${t.ticker ? escapeHtml(t.ticker) : `<span title="${escapeHtml(t.asset_name || "")}">(unresolved)</span>`}</td>
+            <td>${escapeHtml(t.amount_range || "")}</td>
+            <td>
+              ${t.ticker ? `<button class="btn secondary" data-quick-buy="${t.ticker}">Quick buy</button>` : ""}
+              <button class="btn secondary" data-log-trade='${escapeHtml(JSON.stringify(t))}'>Log to journal</button>
+            </td>
+          </tr>`;
+        })
+        .join("");
+      return `<div class="card" style="margin-bottom:12px;">
+        <h2 style="font-size:14px;">${escapeHtml(member.name)} <span class="pill family">${member.chamber || ""}</span></h2>
+        <table>
+          <thead><tr><th>Date</th><th>Side</th><th>Ticker</th><th>Amount</th><th></th></tr></thead>
+          <tbody>${tradeRows || `<tr><td colspan="5"><div class="empty-state">No resolved recent trades on file.</div></td></tr>`}</tbody>
+        </table>
+      </div>`;
+    })
+    .join("");
+
+  el.querySelectorAll("[data-quick-buy]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      switchTab("portfolio");
+      document.getElementById("trade-symbol").value = btn.dataset.quickBuy;
+      handleFetchPriceClick();
+    });
+  });
+  el.querySelectorAll("[data-log-trade]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const t = JSON.parse(btn.dataset.logTrade);
+      state.journal.push({
+        id: uid(),
+        ts: Date.now(),
+        title: `Disclosed: ${t.type || "trade"} of ${t.ticker || t.asset_name || "unknown"}`,
+        note: `Trade date ${t.date || "?"}, amount ${t.amount_range || "?"}. Filed ${t.filing_date || "?"}.`,
+        symbol: t.ticker || "",
+      });
+      saveState();
+      renderJournal();
+      btn.textContent = "Logged!";
+      btn.disabled = true;
+    });
+  });
+}
+
 // ---------- rendering: timeline panel ----------
 
 function renderTimeline() {
@@ -369,6 +571,29 @@ function handleJournalSubmit() {
 
 function renderSettings() {
   document.getElementById("settings-key").value = state.settings.finnhubKey;
+
+  const cfg = congressConfig();
+  document.getElementById("config-rank-by").value = cfg.rankBy;
+  document.getElementById("config-window").value = String(cfg.window);
+  document.getElementById("config-chamber").value = cfg.chamber;
+  document.getElementById("config-party").value = cfg.party;
+  document.getElementById("config-min-trades").value = cfg.minTrades;
+
+  document.getElementById("followed-count").textContent = state.followed.length;
+  const inlineEl = document.getElementById("followed-list-inline");
+  if (state.followed.length === 0) {
+    inlineEl.textContent = "none yet -- follow someone from the Congress tab.";
+  } else if (typeof CONGRESS_DATA !== "undefined") {
+    inlineEl.innerHTML = state.followed
+      .map((id) => {
+        const m = CONGRESS_DATA.members[id];
+        return m ? `${escapeHtml(m.name)} <button class="btn secondary" data-unfollow="${id}" style="padding:2px 8px; font-size:11px;">x</button>` : "";
+      })
+      .join(" &middot; ");
+    inlineEl.querySelectorAll("[data-unfollow]").forEach((btn) => {
+      btn.addEventListener("click", () => handleFollowToggle(btn.dataset.unfollow));
+    });
+  }
 }
 
 function handleSaveSettings() {
@@ -377,9 +602,21 @@ function handleSaveSettings() {
   document.getElementById("settings-status").textContent = "Saved.";
 }
 
+function handleSaveConfig() {
+  state.settings.congressConfig = {
+    rankBy: document.getElementById("config-rank-by").value,
+    window: Number(document.getElementById("config-window").value),
+    chamber: document.getElementById("config-chamber").value,
+    party: document.getElementById("config-party").value,
+    minTrades: Number(document.getElementById("config-min-trades").value) || 0,
+  };
+  saveState();
+  document.getElementById("config-status").textContent = "Saved -- check the Congress tab.";
+}
+
 function handleResetPortfolio() {
   if (!confirm("Reset your paper portfolio back to $100 cash? This clears holdings and trade history (journal and API key are kept).")) return;
-  const kept = { journal: state.journal, settings: state.settings };
+  const kept = { journal: state.journal, settings: state.settings, followed: state.followed };
   state = Object.assign(defaultState(), kept);
   lastQuotes = {};
   saveState();
@@ -566,6 +803,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-journal-add").addEventListener("click", handleJournalSubmit);
 
   document.getElementById("btn-save-settings").addEventListener("click", handleSaveSettings);
+  document.getElementById("btn-save-config").addEventListener("click", handleSaveConfig);
   document.getElementById("btn-reset-portfolio").addEventListener("click", handleResetPortfolio);
   document.getElementById("btn-export").addEventListener("click", handleExport);
   document.getElementById("import-file").addEventListener("change", handleImport);
