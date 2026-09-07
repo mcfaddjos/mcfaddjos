@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capitol Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #f4efe3;
+    --paper-deep:   #ece4d2;
+    --surface:      #faf7ef;
+    --ink:          #24201a;
+    --ink-soft:     #5c5646;
+    --ink-faint:    #948d78;
+    --rule:         #d9cfb8;
+    --rule-strong:  #c3b696;
+    --accent:       #a3701f;
+    --accent-ink:   #7c5416;
+    --navy:         #23344a;
+    --navy-ink:     #23344a;
+    --good:         #3c7a52;
+    --bad:          #a3402f;
+    --party-d:      #35577e;
+    --party-r:      #8a4a2e;
+    --party-i:      #6d6a3f;
+    --shadow:       rgba(36, 32, 26, 0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:        #14151a;
+      --paper-deep:   #0d0e12;
+      --surface:      #1b1c22;
+      --ink:          #ece7d8;
+      --ink-soft:     #ada694;
+      --ink-faint:    #726d5d;
+      --rule:         #34342f;
+      --rule-strong:  #47453b;
+      --accent:       #d3a054;
+      --accent-ink:   #e6bc7c;
+      --navy:         #9fb4cf;
+      --navy-ink:     #b9c9dd;
+      --good:         #6bbf8b;
+      --bad:          #dd8776;
+      --party-d:      #7fa3c9;
+      --party-r:      #c98a63;
+      --party-i:      #b3ac74;
+      --shadow:       rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:        #14151a;
+    --paper-deep:   #0d0e12;
+    --surface:      #1b1c22;
+    --ink:          #ece7d8;
+    --ink-soft:     #ada694;
+    --ink-faint:    #726d5d;
+    --rule:         #34342f;
+    --rule-strong:  #47453b;
+    --accent:       #d3a054;
+    --accent-ink:   #e6bc7c;
+    --navy:         #9fb4cf;
+    --navy-ink:     #b9c9dd;
+    --good:         #6bbf8b;
+    --bad:          #dd8776;
+    --party-d:      #7fa3c9;
+    --party-r:      #c98a63;
+    --party-i:      #b3ac74;
+    --shadow:       rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper-deep);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  ::selection { background: var(--accent); color: var(--surface); }
+
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  header.masthead {
+    padding: 44px 0 26px;
+    border-bottom: 3px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .masthead-title {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 600;
+    font-size: 44px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .masthead-title em {
+    font-style: italic;
+    color: var(--accent-ink);
+  }
+
+  .masthead-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .dek {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 18px 0 0;
+    text-wrap: balance;
+  }
+
+  button.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-soft);
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+  }
+  button.theme-toggle:hover { border-color: var(--accent); color: var(--accent-ink); }
+  button:focus-visible, select:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* --- figures strip --- */
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 28px 0;
+  }
+  .figure {
+    background: var(--surface);
+    padding: 18px 16px;
+  }
+  .figure .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy-ink);
+  }
+  .figure .cap {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    line-height: 1.35;
+  }
+
+  /* --- signal callout --- */
+  .signal {
+    border: 1px solid var(--rule-strong);
+    border-left: 4px solid var(--accent);
+    background: var(--surface);
+    padding: 22px 26px;
+    margin: 34px 0;
+  }
+  .signal .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-ink);
+    margin-bottom: 8px;
+  }
+  .signal h2 {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .signal p {
+    color: var(--ink-soft);
+    max-width: 68ch;
+    margin: 0 0 14px;
+  }
+  .cross-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .cross-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+  .cross-chip .party-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .cross-chip .badges { display: flex; gap: 3px; }
+  .method-badge {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 2px 5px;
+    border-radius: 2px;
+    color: var(--surface);
+  }
+  .method-badge.timing { background: var(--navy); }
+  .method-badge.permutation { background: var(--accent-ink); }
+  .method-badge.performance { background: var(--good); }
+  .method-badge.committee { background: var(--bad); }
+
+  /* --- section / tabs --- */
+  section.board { margin-top: 40px; }
+  .board-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+  }
+  .board-head h2 {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ink-faint);
+  }
+
+  .tabs {
+    display: flex;
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule-strong);
+    border-radius: 4px;
+    padding: 2px;
+  }
+  .tabs button {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    color: var(--ink-soft);
+    padding: 7px 12px;
+    cursor: pointer;
+  }
+  .tabs button.active {
+    background: var(--navy);
+    color: var(--surface);
+  }
+
+  .method-note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    max-width: 74ch;
+    margin: 14px 0 18px;
+  }
+
+  table.board-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table-scroll { overflow-x: auto; }
+  table.board-table th {
+    text-align: left;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+  table.board-table td {
+    padding: 10px 10px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 13.5px;
+    vertical-align: middle;
+  }
+  table.board-table tr:hover td { background: var(--surface); }
+  table.board-table td.num, table.board-table th.num {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .rank-cell {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--ink-faint);
+    font-size: 12px;
+  }
+  .name-cell { display: flex; align-items: center; gap: 8px; }
+  .party-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .member-name { font-weight: 500; }
+  .member-state { color: var(--ink-faint); font-size: 12px; }
+
+  .bar-cell { display: flex; align-items: center; gap: 8px; }
+  .bar-track {
+    position: relative;
+    width: 90px;
+    height: 7px;
+    background: var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    flex: none;
+  }
+  .bar-fill { position: absolute; top: 0; bottom: 0; left: 0; border-radius: 2px; background: var(--navy); }
+  .bar-fill.good { background: var(--good); }
+  .bar-fill.bad { background: var(--bad); }
+  .bar-value { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; font-size: 12.5px; }
+
+  .sig-yes { color: var(--good); font-weight: 600; }
+  .sig-no { color: var(--ink-faint); }
+
+  /* --- fine print --- */
+  .fineprint {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule-strong);
+  }
+  .fineprint h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin: 0 0 12px;
+  }
+  .fineprint ul { margin: 0; padding-left: 18px; }
+  .fineprint li { margin-bottom: 9px; font-size: 12.5px; color: var(--ink-soft); }
+  .fineprint code {
+    font-family: "IBM Plex Mono", monospace;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0 4px;
+    font-size: 11.5px;
+  }
+  .fineprint a { color: var(--accent-ink); }
+
+  footer.colophon {
+    margin-top: 30px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 640px) {
+    .figures { grid-template-columns: repeat(2, 1fr); }
+    .masthead-title { font-size: 32px; }
+    header.masthead { flex-direction: column; align-items: flex-start; }
+    .masthead-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">Capitol <em>Ledger</em></h1>
+      <p class="dek">Four independent readings of the same disclosure records, cross-checked against each other and against chance.</p>
+    </div>
+    <div class="masthead-meta">
+      Vol. 1 &middot; Trump vs. Congress trading<br>
+      Compiled from public STOCK Act &amp; OGE-278 filings<br>
+      <button class="theme-toggle" id="theme-toggle" style="margin-top:6px;">Toggle theme</button>
+    </div>
+  </header>
+
+  <div class="figures" id="figures"></div>
+
+  <div class="signal">
+    <div class="eyebrow">The one name two unrelated methods agree on</div>
+    <h2 id="signal-name">—</h2>
+    <p id="signal-body">—</p>
+    <div class="cross-row" id="cross-row"></div>
+  </div>
+
+  <section class="board">
+    <div class="board-head">
+      <h2>Leaderboard</h2>
+      <div class="tabs" id="tabs">
+        <button data-metric="timing" class="active">Timing match</button>
+        <button data-metric="permutation">Chance-corrected</button>
+        <button data-metric="performance">Performance</button>
+        <button data-metric="committee">Committee lift</button>
+      </div>
+    </div>
+    <p class="method-note" id="method-note"></p>
+    <div class="table-scroll">
+      <table class="board-table">
+        <thead><tr id="table-head"></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="fineprint">
+    <h3>Read before you trust any of it</h3>
+    <ul>
+      <li><strong>None of this is evidence of coordination, insider knowledge, or wrongdoing.</strong> Every method here measures correlation; the chance-correction and baseline steps make surviving correlations harder to explain by luck alone &mdash; they don't explain why one exists.</li>
+      <li><strong>Coverage is partial.</strong> Only 42.5% of Trump's disclosed trades (3,294 of 7,744) resolve to a clean ticker &mdash; the rest is bonds, money-market funds, and small-caps with no clean symbol. Committee assignments matched 200 of 355 members.</li>
+      <li><strong>Both sides can disclose late.</strong> STOCK Act gives Congress 45 days to report a trade; Trump's OGE filings were sometimes over a year late. A close match on trade date doesn't mean either side could have known about the other's trade in real time.</li>
+      <li>Full methodology, caveats, and the underlying scripts live in <code>analysis/RESULTS.md</code> in the repo. This page is a static snapshot of that analysis, not a live feed.</li>
+    </ul>
+  </div>
+
+  <footer class="colophon">CAPITOL LEDGER &mdash; PAPER-TRADING RESEARCH TOOL &mdash; NOT FINANCIAL ADVICE</footer>
+
+</div>
+
+<script>
+const DATA = {"summary": {"congress_members_total": 355, "trump_trades_resolved": 3294, "trump_trades_total": 7744, "committee_matched": 200, "significant_all_windows": 5, "windows_tested": [5, 10, 15, 20]}, "cross_method": [{"filer_id": "house_byron_donalds", "name": "Byron Donalds", "chamber": "house", "party": "R", "state": "FL", "methods": ["committee", "permutation", "timing"]}, {"filer_id": "house_gilbert_cisneros", "name": "Gilbert Cisneros", "chamber": "house", "party": "D", "state": "CA", "methods": ["permutation", "timing"]}, {"filer_id": "house_mariaelvira_salazar", "name": "Maria Elvira Salazar", "chamber": "house", "party": "R", "state": "FL", "methods": ["permutation", "timing"]}, {"filer_id": "senate_tina_smith", "name": "Tina Smith", "chamber": "senate", "party": "D", "state": "MN", "methods": ["committee", "performance"]}], "timing": [{"filer_id": "house_gilbert_cisneros", "name": "Gilbert Cisneros", "chamber": "house", "party": "D", "state": "CA", "match_count": 119, "total_trades": 2525, "match_rate": 4.7}, {"filer_id": "house_rohit_khanna", "name": "Rohit Khanna", "chamber": "house", "party": "D", "state": "CA", "match_count": 49, "total_trades": 95, "match_rate": 51.6}, {"filer_id": "house_michaelt_mccaul", "name": "Michael T. McCaul", "chamber": "house", "party": "R", "state": "TX", "match_count": 39, "total_trades": 70, "match_rate": 55.7}, {"filer_id": "house_davidj_taylor", "name": "David J. Taylor", "chamber": "house", "party": "R", "state": "OH", "match_count": 34, "total_trades": 171, "match_rate": 19.9}, {"filer_id": "house_mariaelvira_salazar", "name": "Maria Elvira Salazar", "chamber": "house", "party": "R", "state": "FL", "match_count": 19, "total_trades": 69, "match_rate": 27.5}, {"filer_id": "house_jared_moskowitz", "name": "Jared Moskowitz", "chamber": "house", "party": "D", "state": "FL", "match_count": 18, "total_trades": 374, "match_rate": 4.8}, {"filer_id": "house_josh_gottheimer", "name": "Josh Gottheimer", "chamber": "house", "party": "D", "state": "NJ", "match_count": 17, "total_trades": 3456, "match_rate": 0.5}, {"filer_id": "house_byron_donalds", "name": "Byron Donalds", "chamber": "house", "party": "R", "state": "FL", "match_count": 16, "total_trades": 161, "match_rate": 9.9}, {"filer_id": "house_aprilmcclain_delaney", "name": "April McClain Delaney", "chamber": "house", "party": "D", "state": "MD", "match_count": 12, "total_trades": 326, "match_rate": 3.7}, {"filer_id": "senate_john_boozman", "name": "John Boozman", "chamber": "senate", "party": "R", "state": "AR", "match_count": 10, "total_trades": 420, "match_rate": 2.4}], "permutation": [{"filer_id": "house_gilbert_cisneros", "name": "Gilbert Cisneros", "chamber": "house", "party": "D", "state": "CA", "observed_matches": 119, "own_trades_used": 2525, "p_value": 0.001}, {"filer_id": "house_mariaelvira_salazar", "name": "Maria Elvira Salazar", "chamber": "house", "party": "R", "state": "FL", "observed_matches": 19, "own_trades_used": 69, "p_value": 0.001}, {"filer_id": "house_byron_donalds", "name": "Byron Donalds", "chamber": "house", "party": "R", "state": "FL", "observed_matches": 16, "own_trades_used": 161, "p_value": 0.001}, {"filer_id": "senate_anguss_kingjr", "name": "Angus S King", "chamber": "senate", "party": "I", "state": "ME", "observed_matches": 8, "own_trades_used": 76, "p_value": 0.002}, {"filer_id": "senate_shelleym_capito", "name": "Shelley M Capito", "chamber": "senate", "party": "R", "state": "WV", "observed_matches": 10, "own_trades_used": 714, "p_value": 0.008}, {"filer_id": "house_mike_kelly", "name": "Mike Kelly", "chamber": "house", "party": "R", "state": "PA", "observed_matches": 2, "own_trades_used": 15, "p_value": 0.0729}, {"filer_id": "house_michaelt_mccaul", "name": "Michael T. McCaul", "chamber": "house", "party": "R", "state": "TX", "observed_matches": 39, "own_trades_used": 70, "p_value": 0.1149}, {"filer_id": "house_thomas_suozzi", "name": "Thomas Suozzi", "chamber": "house", "party": "D", "state": "NY", "observed_matches": 2, "own_trades_used": 715, "p_value": 0.1179}, {"filer_id": "house_jonathan_jackson", "name": "Jonathan Jackson", "chamber": "house", "party": "D", "state": "IL", "observed_matches": 9, "own_trades_used": 184, "p_value": 0.1578}, {"filer_id": "senate_tina_smith", "name": "Tina Smith", "chamber": "senate", "party": "D", "state": "MN", "observed_matches": 2, "own_trades_used": 39, "p_value": 0.2537}, {"filer_id": "senate_sheldon_whitehouse", "name": "Sheldon Whitehouse", "chamber": "senate", "party": "D", "state": "RI", "observed_matches": 4, "own_trades_used": 929, "p_value": 0.2567}, {"filer_id": "senate_johnw_hickenlooper", "name": "John W Hickenlooper", "chamber": "senate", "party": "D", "state": "CO", "observed_matches": 1, "own_trades_used": 119, "p_value": 0.2617}], "performance": [{"filer_id": "house_brad_ashford", "name": "Brad Ashford", "chamber": "house", "party": "D", "state": "NE", "trades_scored": 17, "median_decision_score": 257.08, "avg_decision_score": 183.13}, {"filer_id": "house_franka_lobiondo", "name": "Frank A. LoBiondo", "chamber": "house", "party": "R", "state": "NJ", "trades_scored": 28, "median_decision_score": 177.37, "avg_decision_score": 93.47}, {"filer_id": "house_barbarajhonorable_comstock", "name": "Barbara J Comstock", "chamber": "house", "party": "R", "state": "VA", "trades_scored": 31, "median_decision_score": 93.48, "avg_decision_score": 208.99}, {"filer_id": "house_johnb_larson", "name": "John B. Larson", "chamber": "house", "party": "D", "state": "CT", "trades_scored": 26, "median_decision_score": 91.34, "avg_decision_score": 63.6}, {"filer_id": "house_rogerw_marshall", "name": "Roger W. Marshall", "chamber": "house", "party": "R", "state": "KS", "trades_scored": 51, "median_decision_score": 90.58, "avg_decision_score": 607.22}, {"filer_id": "house_robertcbobby_scott", "name": "Robert C. \"Bobby\" Scott", "chamber": "house", "party": "D", "state": "VA", "trades_scored": 20, "median_decision_score": 89.22, "avg_decision_score": 84.98}, {"filer_id": "house_nicholasvan_taylor", "name": "Nicholas Van Taylor", "chamber": "house", "party": "R", "state": "TX", "trades_scored": 305, "median_decision_score": 84.31, "avg_decision_score": 36.29}, {"filer_id": "senate_thomasr_tillis", "name": "Thomas R Tillis", "chamber": "senate", "party": "R", "state": "NC", "trades_scored": 41, "median_decision_score": 82.76, "avg_decision_score": 51.7}, {"filer_id": "house_elizabeth_fletcher", "name": "Elizabeth Fletcher", "chamber": "house", "party": "R", "state": "TX", "trades_scored": 98, "median_decision_score": 75.89, "avg_decision_score": 52.87}, {"filer_id": "house_donna_shalala", "name": "Donna Shalala", "chamber": "house", "party": "D", "state": "FL", "trades_scored": 396, "median_decision_score": 66.7, "avg_decision_score": 17.63}, {"filer_id": "house_geralde_connolly", "name": "Gerald E. Connolly", "chamber": "house", "party": "D", "state": "VA", "trades_scored": 45, "median_decision_score": 65.56, "avg_decision_score": 61.97}, {"filer_id": "senate_tina_smith", "name": "Tina Smith", "chamber": "senate", "party": "D", "state": "MN", "trades_scored": 25, "median_decision_score": 60.66, "avg_decision_score": 66.1}], "committee": [{"filer_id": "senate_tina_smith", "name": "Tina Smith", "chamber": "senate", "party": "D", "state": "MN", "sector_tagged_trades": 20, "in_jurisdiction_pct": 90.0, "baseline_pct": 40.5, "lift_pct": 49.5}, {"filer_id": "house_bryangeorge_steil", "name": "Bryan George Steil", "chamber": "house", "party": "R", "state": "WI", "sector_tagged_trades": 12, "in_jurisdiction_pct": 66.7, "baseline_pct": 17.6, "lift_pct": 49.1}, {"filer_id": "house_deborahk_ross", "name": "Deborah K. Ross", "chamber": "house", "party": "D", "state": "NC", "sector_tagged_trades": 23, "in_jurisdiction_pct": 69.6, "baseline_pct": 29.7, "lift_pct": 39.9}, {"filer_id": "house_thomash_kean", "name": "Thomas H. Kean", "chamber": "house", "party": "R", "state": "NJ", "sector_tagged_trades": 10, "in_jurisdiction_pct": 60.0, "baseline_pct": 26.8, "lift_pct": 33.2}, {"filer_id": "house_austin_scott", "name": "Austin Scott", "chamber": "house", "party": "R", "state": "GA", "sector_tagged_trades": 39, "in_jurisdiction_pct": 69.2, "baseline_pct": 43.7, "lift_pct": 25.5}, {"filer_id": "house_adam_smith", "name": "Adam Smith", "chamber": "house", "party": "D", "state": "WA", "sector_tagged_trades": 17, "in_jurisdiction_pct": 35.3, "baseline_pct": 11.6, "lift_pct": 23.7}, {"filer_id": "house_patrick_fallon", "name": "Patrick Fallon", "chamber": "house", "party": "R", "state": "TX", "sector_tagged_trades": 225, "in_jurisdiction_pct": 54.7, "baseline_pct": 33.7, "lift_pct": 21.0}, {"filer_id": "house_rick_larsen", "name": "Rick Larsen", "chamber": "house", "party": "D", "state": "WA", "sector_tagged_trades": 78, "in_jurisdiction_pct": 32.1, "baseline_pct": 14.3, "lift_pct": 17.8}, {"filer_id": "senate_johnw_hickenlooper", "name": "John W Hickenlooper", "chamber": "senate", "party": "D", "state": "CO", "sector_tagged_trades": 85, "in_jurisdiction_pct": 80.0, "baseline_pct": 63.2, "lift_pct": 16.8}, {"filer_id": "house_debbie_dingell", "name": "Debbie Dingell", "chamber": "house", "party": "D", "state": "MI", "sector_tagged_trades": 117, "in_jurisdiction_pct": 43.6, "baseline_pct": 29.5, "lift_pct": 14.1}, {"filer_id": "house_byron_donalds", "name": "Byron Donalds", "chamber": "house", "party": "R", "state": "FL", "sector_tagged_trades": 140, "in_jurisdiction_pct": 30.7, "baseline_pct": 17.6, "lift_pct": 13.1}, {"filer_id": "senate_katie_britt", "name": "Katie Britt", "chamber": "senate", "party": "R", "state": "AL", "sector_tagged_trades": 23, "in_jurisdiction_pct": 56.5, "baseline_pct": 47.3, "lift_pct": 9.2}]};
+
+const METRIC_INFO = {
+  timing: {
+    note: "Same ticker, same direction as a Trump trade, within ±5 days. Raw count/rate — easy to over-read on its own; a high-volume trader racks up matches on popular stocks by sheer chance. See “Chance-corrected” before trusting a name here.",
+    cols: ["Rank", "Member", "State", "Matches", "Own trades", "Match rate"],
+  },
+  permutation: {
+    note: "Each member's own trade dates were shuffled 200–1000 times to see how often a random shuffle matches Trump as well as their real trades did. p < 0.05 means their actual timing beats random chance — lower is stronger. This is what corrects the raw timing match above.",
+    cols: ["Rank", "Member", "State", "p-value", "Matches", "Significant"],
+  },
+  performance: {
+    note: "Ranked by median return-vs-market on their own disclosed trades — independent of Trump entirely. Answers “do their trades make money,” not “do they copy Trump.” Median, not mean: individual trades ranged from −5,720% to +24,680%, so a single lucky pick can't dominate this number the way it would an average.",
+    cols: ["Rank", "Member", "State", "Trades scored", "Median score", "Avg score"],
+  },
+  committee: {
+    note: "Do a member's trades land in sectors their own committees oversee, more than market-wide baseline predicts? Lift = observed % − baseline %. Broad committee assignments (e.g. covering 7 of 12 sectors) inflate raw overlap on their own — lift corrects for that, which is why members like Whitehouse and Gottheimer don't appear here despite high raw overlap.",
+    cols: ["Rank", "Member", "State", "Trades", "Observed vs. baseline", "Lift"],
+  },
+};
+
+const PARTY_COLOR = { D: "var(--party-d)", R: "var(--party-r)", I: "var(--party-i)" };
+const METHOD_ABBR = { timing: "TIME", permutation: "PERM", performance: "PERF", committee: "COMM" };
+
+function partyDot(party) {
+  return `<span class="party-dot" style="background:${PARTY_COLOR[party] || "var(--ink-faint)"}" title="${party || "?"}"></span>`;
+}
+
+function nameCell(r) {
+  return `<div class="name-cell">${partyDot(r.party)}<span class="member-name">${r.name}</span></div>`;
+}
+
+function barCell(value, max, cls, label) {
+  const pct = Math.max(2, Math.min(100, (value / max) * 100));
+  return `<div class="bar-cell">
+    <div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%"></div></div>
+    <span class="bar-value">${label}</span>
+  </div>`;
+}
+
+function renderFigures() {
+  const s = DATA.summary;
+  const figures = [
+    { num: s.congress_members_total, cap: "Congress members in the underlying dataset" },
+    { num: `${((s.trump_trades_resolved / s.trump_trades_total) * 100).toFixed(1)}%`, cap: `Trump trades ticker-resolved (${s.trump_trades_resolved.toLocaleString()} of ${s.trump_trades_total.toLocaleString()})` },
+    { num: s.significant_all_windows, cap: `Members significant at every window tested (${s.windows_tested.map(w => "±" + w).join(", ")} days)` },
+    { num: `${s.committee_matched}/${s.congress_members_total}`, cap: "Members matched to a committee assignment" },
+  ];
+  document.getElementById("figures").innerHTML = figures.map(f =>
+    `<div class="figure"><div class="num">${f.num}</div><div class="cap">${f.cap}</div></div>`
+  ).join("");
+}
+
+function renderSignal() {
+  const top = DATA.cross_method[0];
+  document.getElementById("signal-name").textContent = `${top.name} (${top.party}–${top.state}, ${top.chamber === "senate" ? "Senate" : "House"})`;
+  document.getElementById("signal-body").textContent =
+    `The only member flagged by ${top.methods.length} of 4 independent analyses: raw timing match with Trump's trades, ` +
+    `a chance-corrected significance test, and above-baseline concentration in their own committee's sectors. ` +
+    `Still a correlation, not a conclusion — but the strongest single data point in this dataset.`;
+
+  document.getElementById("cross-row").innerHTML = DATA.cross_method.map(r => `
+    <div class="cross-chip">
+      <span class="party-dot" style="background:${PARTY_COLOR[r.party] || "var(--ink-faint)"}"></span>
+      <span>${r.name}</span>
+      <div class="badges">${r.methods.map(m => `<span class="method-badge ${m}">${METHOD_ABBR[m]}</span>`).join("")}</div>
+    </div>
+  `).join("");
+}
+
+function renderTable(metric) {
+  const info = METRIC_INFO[metric];
+  const rows = DATA[metric];
+  document.getElementById("method-note").textContent = info.note;
+  document.getElementById("table-head").innerHTML = info.cols.map((c, i) =>
+    `<th class="${i >= 3 ? "num" : ""}">${c}</th>`
+  ).join("");
+
+  let body = "";
+  if (metric === "timing") {
+    const maxRate = Math.max(...rows.map(r => r.match_rate));
+    body = rows.map((r, i) => `<tr>
+      <td class="rank-cell">${i + 1}</td>
+      <td>${nameCell(r)}</td>
+      <td class="member-state">${r.state}</td>
+      <td class="num">${r.match_count}</td>
+      <td class="num">${r.total_trades.toLocaleString()}</td>
+      <td>${barCell(r.match_rate, maxRate, "", r.match_rate + "%")}</td>
+    </tr>`).join("");
+  } else if (metric === "permutation") {
+    body = rows.map((r, i) => `<tr>
+      <td class="rank-cell">${i + 1}</td>
+      <td>${nameCell(r)}</td>
+      <td class="member-state">${r.state}</td>
+      <td class="num">${r.p_value}</td>
+      <td class="num">${r.observed_matches}</td>
+      <td class="num ${r.p_value < 0.05 ? "sig-yes" : "sig-no"}">${r.p_value < 0.05 ? "✓ p<.05" : "—"}</td>
+    </tr>`).join("");
+  } else if (metric === "performance") {
+    const maxScore = Math.max(...rows.map(r => Math.abs(r.median_decision_score)));
+    body = rows.map((r, i) => `<tr>
+      <td class="rank-cell">${i + 1}</td>
+      <td>${nameCell(r)}</td>
+      <td class="member-state">${r.state}</td>
+      <td class="num">${r.trades_scored}</td>
+      <td>${barCell(Math.abs(r.median_decision_score), maxScore, r.median_decision_score >= 0 ? "good" : "bad", (r.median_decision_score >= 0 ? "+" : "") + r.median_decision_score)}</td>
+      <td class="num">${r.avg_decision_score}</td>
+    </tr>`).join("");
+  } else if (metric === "committee") {
+    const maxLift = Math.max(...rows.map(r => Math.abs(r.lift_pct)));
+    body = rows.map((r, i) => `<tr>
+      <td class="rank-cell">${i + 1}</td>
+      <td>${nameCell(r)}</td>
+      <td class="member-state">${r.state}</td>
+      <td class="num">${r.sector_tagged_trades}</td>
+      <td class="num">${r.in_jurisdiction_pct}% vs ${r.baseline_pct}%</td>
+      <td>${barCell(Math.abs(r.lift_pct), maxLift, r.lift_pct >= 0 ? "good" : "bad", (r.lift_pct >= 0 ? "+" : "") + r.lift_pct)}</td>
+    </tr>`).join("");
+  }
+  document.getElementById("table-body").innerHTML = body;
+}
+
+document.querySelectorAll("#tabs button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#tabs button").forEach(b => b.classList.toggle("active", b === btn));
+    renderTable(btn.dataset.metric);
+  });
+});
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const root = document.documentElement;
+  const current = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+});
+
+renderFigures();
+renderSignal();
+renderTable("timing");
+</script>
+
+</body>
+</html>
