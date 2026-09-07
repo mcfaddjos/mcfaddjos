@@ -1,0 +1,522 @@
+[
+  {
+    "filer_id": "house_gilbert_cisneros",
+    "name": "Gilbert Cisneros",
+    "chamber": "house",
+    "party": "D",
+    "state": "CA",
+    "match_count": 235,
+    "total_trades": 2525,
+    "match_rate": 9.3,
+    "sample_matches": [
+      {
+        "ticker": "AMD",
+        "side": "buy",
+        "member_date": "2026-05-15",
+        "trump_date": "2026-05-15",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "CLX",
+        "side": "sell",
+        "member_date": "2026-05-15",
+        "trump_date": "2026-05-15",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "DASH",
+        "side": "buy",
+        "member_date": "2026-03-18",
+        "trump_date": "2026-03-18",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "WAT",
+        "side": "buy",
+        "member_date": "2026-03-18",
+        "trump_date": "2026-03-18",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "COIN",
+        "side": "sell",
+        "member_date": "2026-02-12",
+        "trump_date": "2026-02-12",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_rohit_khanna",
+    "name": "Rohit Khanna",
+    "chamber": "house",
+    "party": "D",
+    "state": "CA",
+    "match_count": 86,
+    "total_trades": 95,
+    "match_rate": 90.5,
+    "sample_matches": [
+      {
+        "ticker": "JPM",
+        "side": "buy",
+        "member_date": "2026-05-18",
+        "trump_date": "2026-05-18",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "WFC",
+        "side": "buy",
+        "member_date": "2026-03-11",
+        "trump_date": "2026-03-11",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "JNJ",
+        "side": "sell",
+        "member_date": "2026-03-06",
+        "trump_date": "2026-03-06",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "META",
+        "side": "sell",
+        "member_date": "2026-03-06",
+        "trump_date": "2026-03-06",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "AAPL",
+        "side": "sell",
+        "member_date": "2026-03-06",
+        "trump_date": "2026-03-06",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_michaelt_mccaul",
+    "name": "Michael T. McCaul",
+    "chamber": "house",
+    "party": "R",
+    "state": "TX",
+    "match_count": 60,
+    "total_trades": 70,
+    "match_rate": 85.7,
+    "sample_matches": [
+      {
+        "ticker": "MA",
+        "side": "sell",
+        "member_date": "2026-04-27",
+        "trump_date": "2026-04-27",
+        "delta_days": 0,
+        "amount_range": "$15,001 - $50,000"
+      },
+      {
+        "ticker": "V",
+        "side": "buy",
+        "member_date": "2026-04-27",
+        "trump_date": "2026-04-27",
+        "delta_days": 0,
+        "amount_range": "$15,001 - $50,000"
+      },
+      {
+        "ticker": "MA",
+        "side": "buy",
+        "member_date": "2026-04-17",
+        "trump_date": "2026-04-17",
+        "delta_days": 0,
+        "amount_range": "$15,001 - $50,000"
+      },
+      {
+        "ticker": "META",
+        "side": "buy",
+        "member_date": "2026-04-17",
+        "trump_date": "2026-04-17",
+        "delta_days": 0,
+        "amount_range": "$15,001 - $50,000"
+      },
+      {
+        "ticker": "INTU",
+        "side": "buy",
+        "member_date": "2026-04-17",
+        "trump_date": "2026-04-17",
+        "delta_days": 0,
+        "amount_range": "$50,001 - $100,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_davidj_taylor",
+    "name": "David J. Taylor",
+    "chamber": "house",
+    "party": "R",
+    "state": "OH",
+    "match_count": 54,
+    "total_trades": 171,
+    "match_rate": 31.6,
+    "sample_matches": [
+      {
+        "ticker": "T",
+        "side": "buy",
+        "member_date": "2026-05-15",
+        "trump_date": "2026-05-15",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "HD",
+        "side": "buy",
+        "member_date": "2026-05-15",
+        "trump_date": "2026-05-15",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "AVGO",
+        "side": "sell",
+        "member_date": "2026-04-27",
+        "trump_date": "2026-04-27",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "HD",
+        "side": "sell",
+        "member_date": "2026-04-27",
+        "trump_date": "2026-04-27",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "HD",
+        "side": "buy",
+        "member_date": "2026-04-27",
+        "trump_date": "2026-04-27",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_josh_gottheimer",
+    "name": "Josh Gottheimer",
+    "chamber": "house",
+    "party": "D",
+    "state": "NJ",
+    "match_count": 37,
+    "total_trades": 3456,
+    "match_rate": 1.1,
+    "sample_matches": [
+      {
+        "ticker": "MSFT",
+        "side": "buy",
+        "member_date": "2026-03-25",
+        "trump_date": "2026-03-25",
+        "delta_days": 0,
+        "amount_range": "$50,001 - $100,000"
+      },
+      {
+        "ticker": "MSFT",
+        "side": "buy",
+        "member_date": "2026-03-25",
+        "trump_date": "2026-03-25",
+        "delta_days": 0,
+        "amount_range": "$500,001 - $1,000,000"
+      },
+      {
+        "ticker": "MSFT",
+        "side": "sell",
+        "member_date": "2026-05-19",
+        "trump_date": "2026-05-18",
+        "delta_days": 1,
+        "amount_range": "$250,001 - $500,000"
+      },
+      {
+        "ticker": "MSFT",
+        "side": "sell",
+        "member_date": "2026-05-19",
+        "trump_date": "2026-05-18",
+        "delta_days": 1,
+        "amount_range": "$500,001 - $1,000,000"
+      },
+      {
+        "ticker": "MSFT",
+        "side": "buy",
+        "member_date": "2026-05-19",
+        "trump_date": "2026-05-18",
+        "delta_days": 1,
+        "amount_range": "$250,001 - $500,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_jared_moskowitz",
+    "name": "Jared Moskowitz",
+    "chamber": "house",
+    "party": "D",
+    "state": "FL",
+    "match_count": 33,
+    "total_trades": 374,
+    "match_rate": 8.8,
+    "sample_matches": [
+      {
+        "ticker": "GE",
+        "side": "buy",
+        "member_date": "2026-03-23",
+        "trump_date": "2026-03-23",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "GE",
+        "side": "buy",
+        "member_date": "2026-03-23",
+        "trump_date": "2026-03-23",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "PH",
+        "side": "buy",
+        "member_date": "2026-03-23",
+        "trump_date": "2026-03-23",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "PH",
+        "side": "buy",
+        "member_date": "2026-03-23",
+        "trump_date": "2026-03-23",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "ORCL",
+        "side": "sell",
+        "member_date": "2026-03-23",
+        "trump_date": "2026-03-26",
+        "delta_days": 3,
+        "amount_range": "$1,001 - $15,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "senate_john_boozman",
+    "name": "John Boozman",
+    "chamber": "senate",
+    "party": "R",
+    "state": "AR",
+    "match_count": 24,
+    "total_trades": 420,
+    "match_rate": 5.7,
+    "sample_matches": [
+      {
+        "ticker": "META",
+        "side": "buy",
+        "member_date": "2025-10-31",
+        "trump_date": "2025-10-31",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "MSFT",
+        "side": "buy",
+        "member_date": "2026-02-13",
+        "trump_date": "2026-02-12",
+        "delta_days": 1,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "NVDA",
+        "side": "buy",
+        "member_date": "2026-03-19",
+        "trump_date": "2026-03-17",
+        "delta_days": 2,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "ECL",
+        "side": "sell",
+        "member_date": "2026-05-15",
+        "trump_date": "2026-05-18",
+        "delta_days": 3,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "ACN",
+        "side": "sell",
+        "member_date": "2026-05-15",
+        "trump_date": "2026-05-18",
+        "delta_days": 3,
+        "amount_range": "$1,001 - $15,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_mariaelvira_salazar",
+    "name": "Maria Elvira Salazar",
+    "chamber": "house",
+    "party": "R",
+    "state": "FL",
+    "match_count": 22,
+    "total_trades": 69,
+    "match_rate": 31.9,
+    "sample_matches": [
+      {
+        "ticker": "SHW",
+        "side": "buy",
+        "member_date": "2026-04-20",
+        "trump_date": "2026-04-20",
+        "delta_days": 0,
+        "amount_range": "$15,001 - $50,000"
+      },
+      {
+        "ticker": "SHW",
+        "side": "buy",
+        "member_date": "2026-04-20",
+        "trump_date": "2026-04-20",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "MSFT",
+        "side": "buy",
+        "member_date": "2026-04-17",
+        "trump_date": "2026-04-17",
+        "delta_days": 0,
+        "amount_range": "$15,001 - $50,000"
+      },
+      {
+        "ticker": "IBM",
+        "side": "buy",
+        "member_date": "2026-05-21",
+        "trump_date": "2026-05-20",
+        "delta_days": 1,
+        "amount_range": "$15,001 - $50,000"
+      },
+      {
+        "ticker": "SHW",
+        "side": "sell",
+        "member_date": "2026-05-12",
+        "trump_date": "2026-05-11",
+        "delta_days": 1,
+        "amount_range": "$1,001 - $15,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_byron_donalds",
+    "name": "Byron Donalds",
+    "chamber": "house",
+    "party": "R",
+    "state": "FL",
+    "match_count": 22,
+    "total_trades": 161,
+    "match_rate": 13.7,
+    "sample_matches": [
+      {
+        "ticker": "NOW",
+        "side": "buy",
+        "member_date": "2026-02-10",
+        "trump_date": "2026-02-10",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "NOW",
+        "side": "buy",
+        "member_date": "2026-02-10",
+        "trump_date": "2026-02-10",
+        "delta_days": 0,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "PYPL",
+        "side": "buy",
+        "member_date": "2026-03-13",
+        "trump_date": "2026-03-11",
+        "delta_days": 2,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "PYPL",
+        "side": "buy",
+        "member_date": "2026-03-13",
+        "trump_date": "2026-03-11",
+        "delta_days": 2,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "BRO",
+        "side": "sell",
+        "member_date": "2026-02-10",
+        "trump_date": "2026-02-12",
+        "delta_days": 2,
+        "amount_range": "$1,001 - $15,000"
+      }
+    ]
+  },
+  {
+    "filer_id": "house_cleo_fields",
+    "name": "Cleo Fields",
+    "chamber": "house",
+    "party": "D",
+    "state": "LA",
+    "match_count": 21,
+    "total_trades": 193,
+    "match_rate": 10.9,
+    "sample_matches": [
+      {
+        "ticker": "NFLX",
+        "side": "buy",
+        "member_date": "2026-01-20",
+        "trump_date": "2026-01-20",
+        "delta_days": 0,
+        "amount_range": "$50,001 - $100,000"
+      },
+      {
+        "ticker": "AAPL",
+        "side": "buy",
+        "member_date": "2026-05-14",
+        "trump_date": "2026-05-15",
+        "delta_days": 1,
+        "amount_range": "$1,001 - $15,000"
+      },
+      {
+        "ticker": "GOOGL",
+        "side": "buy",
+        "member_date": "2026-02-03",
+        "trump_date": "2026-02-02",
+        "delta_days": 1,
+        "amount_range": "$100,001 - $250,000"
+      },
+      {
+        "ticker": "NFLX",
+        "side": "buy",
+        "member_date": "2025-11-03",
+        "trump_date": "2025-11-04",
+        "delta_days": 1,
+        "amount_range": "$100,001 - $250,000"
+      },
+      {
+        "ticker": "META",
+        "side": "buy",
+        "member_date": "2026-01-20",
+        "trump_date": "2026-01-23",
+        "delta_days": 3,
+        "amount_range": "$50,001 - $100,000"
+      }
+    ]
+  }
+]

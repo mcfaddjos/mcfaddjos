@@ -1,0 +1,2344 @@
+[
+  {
+    "filer_id": "senate_tina_smith",
+    "name": "Tina Smith",
+    "chamber": "senate",
+    "party": "D",
+    "state": "MN",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Financials",
+      "Healthcare",
+      "Materials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 20,
+    "in_jurisdiction_trades": 18,
+    "in_jurisdiction_pct": 90.0,
+    "baseline_pct": 40.5,
+    "lift_pct": 49.5,
+    "top_traded_sectors": [
+      [
+        "Healthcare",
+        13
+      ],
+      [
+        "Financials",
+        3
+      ],
+      [
+        "Consumer Staples",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_bryangeorge_steil",
+    "name": "Bryan George Steil",
+    "chamber": "house",
+    "party": "R",
+    "state": "WI",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 12,
+    "in_jurisdiction_trades": 8,
+    "in_jurisdiction_pct": 66.7,
+    "baseline_pct": 17.6,
+    "lift_pct": 49.1,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        8
+      ],
+      [
+        "Technology",
+        2
+      ],
+      [
+        "Healthcare",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_deborahk_ross",
+    "name": "Deborah K. Ross",
+    "chamber": "house",
+    "party": "D",
+    "state": "NC",
+    "committee_sectors": [
+      "Communication Services",
+      "Technology"
+    ],
+    "sector_tagged_trades": 23,
+    "in_jurisdiction_trades": 16,
+    "in_jurisdiction_pct": 69.6,
+    "baseline_pct": 29.7,
+    "lift_pct": 39.9,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        14
+      ],
+      [
+        "Materials",
+        2
+      ],
+      [
+        "Communication Services",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_thomash_kean",
+    "name": "Thomas H. Kean",
+    "chamber": "house",
+    "party": "R",
+    "state": "NJ",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 10,
+    "in_jurisdiction_trades": 6,
+    "in_jurisdiction_pct": 60.0,
+    "baseline_pct": 26.8,
+    "lift_pct": 33.2,
+    "top_traded_sectors": [
+      [
+        "Healthcare",
+        5
+      ],
+      [
+        "Financials",
+        4
+      ],
+      [
+        "Communication Services",
+        1
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_austin_scott",
+    "name": "Austin Scott",
+    "chamber": "house",
+    "party": "R",
+    "state": "GA",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Industrials",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 39,
+    "in_jurisdiction_trades": 27,
+    "in_jurisdiction_pct": 69.2,
+    "baseline_pct": 43.7,
+    "lift_pct": 25.5,
+    "top_traded_sectors": [
+      [
+        "Industrials",
+        25
+      ],
+      [
+        "Healthcare",
+        4
+      ],
+      [
+        "Consumer Discretionary",
+        4
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_adam_smith",
+    "name": "Adam Smith",
+    "chamber": "house",
+    "party": "D",
+    "state": "WA",
+    "committee_sectors": [
+      "Industrials"
+    ],
+    "sector_tagged_trades": 17,
+    "in_jurisdiction_trades": 6,
+    "in_jurisdiction_pct": 35.3,
+    "baseline_pct": 11.6,
+    "lift_pct": 23.7,
+    "top_traded_sectors": [
+      [
+        "Industrials",
+        6
+      ],
+      [
+        "Communication Services",
+        2
+      ],
+      [
+        "Technology",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_patrick_fallon",
+    "name": "Patrick Fallon",
+    "chamber": "house",
+    "party": "R",
+    "state": "TX",
+    "committee_sectors": [
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 225,
+    "in_jurisdiction_trades": 123,
+    "in_jurisdiction_pct": 54.7,
+    "baseline_pct": 33.7,
+    "lift_pct": 21.0,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        62
+      ],
+      [
+        "Industrials",
+        61
+      ],
+      [
+        "Communication Services",
+        31
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_rick_larsen",
+    "name": "Rick Larsen",
+    "chamber": "house",
+    "party": "D",
+    "state": "WA",
+    "committee_sectors": [
+      "Industrials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 78,
+    "in_jurisdiction_trades": 25,
+    "in_jurisdiction_pct": 32.1,
+    "baseline_pct": 14.3,
+    "lift_pct": 17.8,
+    "top_traded_sectors": [
+      [
+        "Industrials",
+        21
+      ],
+      [
+        "Healthcare",
+        13
+      ],
+      [
+        "Financials",
+        12
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_johnw_hickenlooper",
+    "name": "John W Hickenlooper",
+    "chamber": "senate",
+    "party": "D",
+    "state": "CO",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Industrials",
+      "Materials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 85,
+    "in_jurisdiction_trades": 68,
+    "in_jurisdiction_pct": 80.0,
+    "baseline_pct": 63.2,
+    "lift_pct": 16.8,
+    "top_traded_sectors": [
+      [
+        "Communication Services",
+        53
+      ],
+      [
+        "Consumer Discretionary",
+        14
+      ],
+      [
+        "Technology",
+        11
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_debbie_dingell",
+    "name": "Debbie Dingell",
+    "chamber": "house",
+    "party": "D",
+    "state": "MI",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Materials",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 117,
+    "in_jurisdiction_trades": 51,
+    "in_jurisdiction_pct": 43.6,
+    "baseline_pct": 29.5,
+    "lift_pct": 14.1,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        22
+      ],
+      [
+        "Industrials",
+        16
+      ],
+      [
+        "Communication Services",
+        15
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_byron_donalds",
+    "name": "Byron Donalds",
+    "chamber": "house",
+    "party": "R",
+    "state": "FL",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 140,
+    "in_jurisdiction_trades": 43,
+    "in_jurisdiction_pct": 30.7,
+    "baseline_pct": 17.6,
+    "lift_pct": 13.1,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        44
+      ],
+      [
+        "Financials",
+        43
+      ],
+      [
+        "Healthcare",
+        22
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_katie_britt",
+    "name": "Katie Britt",
+    "chamber": "senate",
+    "party": "R",
+    "state": "AL",
+    "committee_sectors": [
+      "Communication Services",
+      "Financials",
+      "Real Estate",
+      "Technology"
+    ],
+    "sector_tagged_trades": 23,
+    "in_jurisdiction_trades": 13,
+    "in_jurisdiction_pct": 56.5,
+    "baseline_pct": 47.3,
+    "lift_pct": 9.2,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        7
+      ],
+      [
+        "Financials",
+        4
+      ],
+      [
+        "Consumer Discretionary",
+        3
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_kellylouise_morrison",
+    "name": "Kelly Louise Morrison",
+    "chamber": "house",
+    "party": "D",
+    "state": "MN",
+    "committee_sectors": [
+      "Healthcare"
+    ],
+    "sector_tagged_trades": 28,
+    "in_jurisdiction_trades": 6,
+    "in_jurisdiction_pct": 21.4,
+    "baseline_pct": 12.8,
+    "lift_pct": 8.6,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        7
+      ],
+      [
+        "Healthcare",
+        6
+      ],
+      [
+        "Communication Services",
+        5
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_tim_walberg",
+    "name": "Tim Walberg",
+    "chamber": "house",
+    "party": "R",
+    "state": "MI",
+    "committee_sectors": [
+      "Energy",
+      "Materials"
+    ],
+    "sector_tagged_trades": 14,
+    "in_jurisdiction_trades": 2,
+    "in_jurisdiction_pct": 14.3,
+    "baseline_pct": 6.6,
+    "lift_pct": 7.7,
+    "top_traded_sectors": [
+      [
+        "Industrials",
+        6
+      ],
+      [
+        "Consumer Discretionary",
+        3
+      ],
+      [
+        "Financials",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_davidcheston_rouzer",
+    "name": "David Cheston Rouzer",
+    "chamber": "house",
+    "party": "R",
+    "state": "NC",
+    "committee_sectors": [
+      "Communication Services",
+      "Consumer Staples",
+      "Industrials",
+      "Materials",
+      "Real Estate",
+      "Technology"
+    ],
+    "sector_tagged_trades": 13,
+    "in_jurisdiction_trades": 8,
+    "in_jurisdiction_pct": 61.5,
+    "baseline_pct": 54.0,
+    "lift_pct": 7.5,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        3
+      ],
+      [
+        "Industrials",
+        2
+      ],
+      [
+        "Communication Services",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_bruce_westerman",
+    "name": "Bruce Westerman",
+    "chamber": "house",
+    "party": "R",
+    "state": "AR",
+    "committee_sectors": [
+      "Energy",
+      "Industrials",
+      "Materials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 122,
+    "in_jurisdiction_trades": 33,
+    "in_jurisdiction_pct": 27.0,
+    "baseline_pct": 20.8,
+    "lift_pct": 6.2,
+    "top_traded_sectors": [
+      [
+        "Healthcare",
+        24
+      ],
+      [
+        "Industrials",
+        23
+      ],
+      [
+        "Technology",
+        19
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_scotth_peters",
+    "name": "Scott H. Peters",
+    "chamber": "house",
+    "party": "D",
+    "state": "CA",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 167,
+    "in_jurisdiction_trades": 55,
+    "in_jurisdiction_pct": 32.9,
+    "baseline_pct": 26.8,
+    "lift_pct": 6.1,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        46
+      ],
+      [
+        "Financials",
+        37
+      ],
+      [
+        "Healthcare",
+        25
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_ritchiejohn_torres",
+    "name": "Ritchie John Torres",
+    "chamber": "house",
+    "party": "D",
+    "state": "NY",
+    "committee_sectors": [
+      "Financials",
+      "Industrials",
+      "Real Estate",
+      "Technology"
+    ],
+    "sector_tagged_trades": 110,
+    "in_jurisdiction_trades": 63,
+    "in_jurisdiction_pct": 57.3,
+    "baseline_pct": 51.3,
+    "lift_pct": 6.0,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        21
+      ],
+      [
+        "Technology",
+        18
+      ],
+      [
+        "Industrials",
+        13
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_michaelt_mccaul",
+    "name": "Michael T. McCaul",
+    "chamber": "house",
+    "party": "R",
+    "state": "TX",
+    "committee_sectors": [
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 69,
+    "in_jurisdiction_trades": 27,
+    "in_jurisdiction_pct": 39.1,
+    "baseline_pct": 33.7,
+    "lift_pct": 5.4,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        26
+      ],
+      [
+        "Financials",
+        17
+      ],
+      [
+        "Communication Services",
+        7
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_josh_gottheimer",
+    "name": "Josh Gottheimer",
+    "chamber": "house",
+    "party": "D",
+    "state": "NJ",
+    "committee_sectors": [
+      "Financials",
+      "Industrials",
+      "Real Estate",
+      "Technology"
+    ],
+    "sector_tagged_trades": 2178,
+    "in_jurisdiction_trades": 1229,
+    "in_jurisdiction_pct": 56.4,
+    "baseline_pct": 51.3,
+    "lift_pct": 5.1,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        725
+      ],
+      [
+        "Healthcare",
+        319
+      ],
+      [
+        "Consumer Discretionary",
+        253
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_brian_mast",
+    "name": "Brian Mast",
+    "chamber": "house",
+    "party": "R",
+    "state": "FL",
+    "committee_sectors": [
+      "Industrials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 11,
+    "in_jurisdiction_trades": 2,
+    "in_jurisdiction_pct": 18.2,
+    "baseline_pct": 14.3,
+    "lift_pct": 3.9,
+    "top_traded_sectors": [
+      [
+        "Communication Services",
+        3
+      ],
+      [
+        "Industrials",
+        2
+      ],
+      [
+        "Consumer Staples",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_john_hoeven",
+    "name": "John Hoeven",
+    "chamber": "senate",
+    "party": "R",
+    "state": "ND",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Energy",
+      "Materials",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 135,
+    "in_jurisdiction_trades": 27,
+    "in_jurisdiction_pct": 20.0,
+    "baseline_pct": 16.5,
+    "lift_pct": 3.5,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        24
+      ],
+      [
+        "Consumer Discretionary",
+        20
+      ],
+      [
+        "Industrials",
+        19
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_sheri_biggs",
+    "name": "Sheri Biggs",
+    "chamber": "house",
+    "party": "R",
+    "state": "SC",
+    "committee_sectors": [
+      "Communication Services",
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 27,
+    "in_jurisdiction_trades": 12,
+    "in_jurisdiction_pct": 44.4,
+    "baseline_pct": 41.3,
+    "lift_pct": 3.1,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        6
+      ],
+      [
+        "Financials",
+        5
+      ],
+      [
+        "Industrials",
+        5
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_john_james",
+    "name": "John James",
+    "chamber": "house",
+    "party": "R",
+    "state": "MI",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 235,
+    "in_jurisdiction_trades": 70,
+    "in_jurisdiction_pct": 29.8,
+    "baseline_pct": 26.8,
+    "lift_pct": 3.0,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        45
+      ],
+      [
+        "Financials",
+        38
+      ],
+      [
+        "Industrials",
+        33
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_emily_randall",
+    "name": "Emily Randall",
+    "chamber": "house",
+    "party": "D",
+    "state": "WA",
+    "committee_sectors": [
+      "Energy",
+      "Materials"
+    ],
+    "sector_tagged_trades": 11,
+    "in_jurisdiction_trades": 1,
+    "in_jurisdiction_pct": 9.1,
+    "baseline_pct": 6.6,
+    "lift_pct": 2.5,
+    "top_traded_sectors": [
+      [
+        "Healthcare",
+        3
+      ],
+      [
+        "Consumer Staples",
+        3
+      ],
+      [
+        "Communication Services",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_gilbert_cisneros",
+    "name": "Gilbert Cisneros",
+    "chamber": "house",
+    "party": "D",
+    "state": "CA",
+    "committee_sectors": [
+      "Industrials"
+    ],
+    "sector_tagged_trades": 1619,
+    "in_jurisdiction_trades": 228,
+    "in_jurisdiction_pct": 14.1,
+    "baseline_pct": 11.6,
+    "lift_pct": 2.5,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        417
+      ],
+      [
+        "Healthcare",
+        248
+      ],
+      [
+        "Industrials",
+        228
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_steve_cohen",
+    "name": "Steve Cohen",
+    "chamber": "house",
+    "party": "D",
+    "state": "TN",
+    "committee_sectors": [
+      "Communication Services",
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 48,
+    "in_jurisdiction_trades": 21,
+    "in_jurisdiction_pct": 43.8,
+    "baseline_pct": 41.3,
+    "lift_pct": 2.5,
+    "top_traded_sectors": [
+      [
+        "Communication Services",
+        9
+      ],
+      [
+        "Industrials",
+        6
+      ],
+      [
+        "Financials",
+        6
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_valerie_hoyle",
+    "name": "Valerie Hoyle",
+    "chamber": "house",
+    "party": "D",
+    "state": "OR",
+    "committee_sectors": [
+      "Energy",
+      "Industrials",
+      "Materials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 325,
+    "in_jurisdiction_trades": 75,
+    "in_jurisdiction_pct": 23.1,
+    "baseline_pct": 20.8,
+    "lift_pct": 2.3,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        71
+      ],
+      [
+        "Financials",
+        69
+      ],
+      [
+        "Industrials",
+        58
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_patty_murray",
+    "name": "Patty Murray",
+    "chamber": "senate",
+    "party": "D",
+    "state": "WA",
+    "committee_sectors": [
+      "Healthcare"
+    ],
+    "sector_tagged_trades": 107,
+    "in_jurisdiction_trades": 16,
+    "in_jurisdiction_pct": 15.0,
+    "baseline_pct": 12.8,
+    "lift_pct": 2.2,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        19
+      ],
+      [
+        "Healthcare",
+        16
+      ],
+      [
+        "Industrials",
+        12
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_davidj_taylor",
+    "name": "David J. Taylor",
+    "chamber": "house",
+    "party": "R",
+    "state": "OH",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Industrials",
+      "Materials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 151,
+    "in_jurisdiction_trades": 39,
+    "in_jurisdiction_pct": 25.8,
+    "baseline_pct": 24.3,
+    "lift_pct": 1.5,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        38
+      ],
+      [
+        "Financials",
+        19
+      ],
+      [
+        "Consumer Staples",
+        18
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_dan_newhouse",
+    "name": "Dan Newhouse",
+    "chamber": "house",
+    "party": "R",
+    "state": "WA",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Industrials",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 157,
+    "in_jurisdiction_trades": 70,
+    "in_jurisdiction_pct": 44.6,
+    "baseline_pct": 43.7,
+    "lift_pct": 0.9,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        38
+      ],
+      [
+        "Consumer Discretionary",
+        23
+      ],
+      [
+        "Financials",
+        21
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_jonathan_jackson",
+    "name": "Jonathan Jackson",
+    "chamber": "house",
+    "party": "D",
+    "state": "IL",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Materials"
+    ],
+    "sector_tagged_trades": 139,
+    "in_jurisdiction_trades": 15,
+    "in_jurisdiction_pct": 10.8,
+    "baseline_pct": 10.1,
+    "lift_pct": 0.7,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        31
+      ],
+      [
+        "Financials",
+        18
+      ],
+      [
+        "Consumer Discretionary",
+        17
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_susie_lee",
+    "name": "Susie Lee",
+    "chamber": "house",
+    "party": "D",
+    "state": "NV",
+    "committee_sectors": [
+      "Energy",
+      "Materials"
+    ],
+    "sector_tagged_trades": 738,
+    "in_jurisdiction_trades": 53,
+    "in_jurisdiction_pct": 7.2,
+    "baseline_pct": 6.6,
+    "lift_pct": 0.6,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        165
+      ],
+      [
+        "Consumer Discretionary",
+        129
+      ],
+      [
+        "Industrials",
+        112
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_corya_booker",
+    "name": "Cory A Booker",
+    "chamber": "senate",
+    "party": "D",
+    "state": "NJ",
+    "committee_sectors": [
+      "Communication Services",
+      "Consumer Staples",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 10,
+    "in_jurisdiction_trades": 4,
+    "in_jurisdiction_pct": 40.0,
+    "baseline_pct": 39.7,
+    "lift_pct": 0.3,
+    "top_traded_sectors": [
+      [
+        "Consumer Discretionary",
+        3
+      ],
+      [
+        "Real Estate",
+        3
+      ],
+      [
+        "Technology",
+        2
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_sheldon_whitehouse",
+    "name": "Sheldon Whitehouse",
+    "chamber": "senate",
+    "party": "D",
+    "state": "RI",
+    "committee_sectors": [
+      "Communication Services",
+      "Financials",
+      "Healthcare",
+      "Industrials",
+      "Materials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 652,
+    "in_jurisdiction_trades": 486,
+    "in_jurisdiction_pct": 74.5,
+    "baseline_pct": 74.2,
+    "lift_pct": 0.3,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        125
+      ],
+      [
+        "Healthcare",
+        112
+      ],
+      [
+        "Financials",
+        99
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_williamr_keating",
+    "name": "William R. Keating",
+    "chamber": "house",
+    "party": "D",
+    "state": "MA",
+    "committee_sectors": [
+      "Industrials"
+    ],
+    "sector_tagged_trades": 121,
+    "in_jurisdiction_trades": 14,
+    "in_jurisdiction_pct": 11.6,
+    "baseline_pct": 11.6,
+    "lift_pct": -0.0,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        30
+      ],
+      [
+        "Consumer Discretionary",
+        17
+      ],
+      [
+        "Financials",
+        16
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_julie_johnson",
+    "name": "Julie Johnson",
+    "chamber": "house",
+    "party": "D",
+    "state": "TX",
+    "committee_sectors": [
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 459,
+    "in_jurisdiction_trades": 154,
+    "in_jurisdiction_pct": 33.6,
+    "baseline_pct": 33.7,
+    "lift_pct": -0.1,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        86
+      ],
+      [
+        "Industrials",
+        78
+      ],
+      [
+        "Technology",
+        76
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_sara_jacobs",
+    "name": "Sara Jacobs",
+    "chamber": "house",
+    "party": "D",
+    "state": "CA",
+    "committee_sectors": [
+      "Industrials"
+    ],
+    "sector_tagged_trades": 38,
+    "in_jurisdiction_trades": 4,
+    "in_jurisdiction_pct": 10.5,
+    "baseline_pct": 11.6,
+    "lift_pct": -1.1,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        10
+      ],
+      [
+        "Financials",
+        7
+      ],
+      [
+        "Healthcare",
+        5
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_greg_landsman",
+    "name": "Greg Landsman",
+    "chamber": "house",
+    "party": "D",
+    "state": "OH",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 160,
+    "in_jurisdiction_trades": 41,
+    "in_jurisdiction_pct": 25.6,
+    "baseline_pct": 26.8,
+    "lift_pct": -1.2,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        47
+      ],
+      [
+        "Industrials",
+        30
+      ],
+      [
+        "Healthcare",
+        20
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_anguss_kingjr",
+    "name": "Angus S King",
+    "chamber": "senate",
+    "party": "I",
+    "state": "ME",
+    "committee_sectors": [
+      "Energy",
+      "Healthcare",
+      "Industrials",
+      "Materials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 63,
+    "in_jurisdiction_trades": 34,
+    "in_jurisdiction_pct": 54.0,
+    "baseline_pct": 55.6,
+    "lift_pct": -1.6,
+    "top_traded_sectors": [
+      [
+        "Communication Services",
+        13
+      ],
+      [
+        "Technology",
+        13
+      ],
+      [
+        "Financials",
+        10
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_pete_sessions",
+    "name": "Pete Sessions",
+    "chamber": "house",
+    "party": "R",
+    "state": "TX",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 222,
+    "in_jurisdiction_trades": 35,
+    "in_jurisdiction_pct": 15.8,
+    "baseline_pct": 17.6,
+    "lift_pct": -1.8,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        47
+      ],
+      [
+        "Consumer Discretionary",
+        31
+      ],
+      [
+        "Consumer Staples",
+        28
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_lisa_mcclain",
+    "name": "Lisa McClain",
+    "chamber": "house",
+    "party": "R",
+    "state": "MI",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 839,
+    "in_jurisdiction_trades": 128,
+    "in_jurisdiction_pct": 15.3,
+    "baseline_pct": 17.6,
+    "lift_pct": -2.3,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        216
+      ],
+      [
+        "Financials",
+        102
+      ],
+      [
+        "Industrials",
+        101
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_shelleym_capito",
+    "name": "Shelley M Capito",
+    "chamber": "senate",
+    "party": "R",
+    "state": "WV",
+    "committee_sectors": [
+      "Communication Services",
+      "Industrials",
+      "Materials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 559,
+    "in_jurisdiction_trades": 247,
+    "in_jurisdiction_pct": 44.2,
+    "baseline_pct": 46.5,
+    "lift_pct": -2.3,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        125
+      ],
+      [
+        "Financials",
+        113
+      ],
+      [
+        "Industrials",
+        68
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_daniel_meuser",
+    "name": "Daniel Meuser",
+    "chamber": "house",
+    "party": "R",
+    "state": "PA",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 53,
+    "in_jurisdiction_trades": 8,
+    "in_jurisdiction_pct": 15.1,
+    "baseline_pct": 17.6,
+    "lift_pct": -2.5,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        26
+      ],
+      [
+        "Financials",
+        8
+      ],
+      [
+        "Communication Services",
+        7
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_jerry_moran",
+    "name": "Jerry Moran,",
+    "chamber": "senate",
+    "party": "R",
+    "state": "KS",
+    "committee_sectors": [
+      "Communication Services",
+      "Consumer Staples",
+      "Healthcare",
+      "Industrials",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 239,
+    "in_jurisdiction_trades": 146,
+    "in_jurisdiction_pct": 61.1,
+    "baseline_pct": 64.2,
+    "lift_pct": -3.1,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        58
+      ],
+      [
+        "Healthcare",
+        40
+      ],
+      [
+        "Technology",
+        39
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_george_whitesides",
+    "name": "George Whitesides",
+    "chamber": "house",
+    "party": "D",
+    "state": "CA",
+    "committee_sectors": [
+      "Communication Services",
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 29,
+    "in_jurisdiction_trades": 11,
+    "in_jurisdiction_pct": 37.9,
+    "baseline_pct": 41.3,
+    "lift_pct": -3.4,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        6
+      ],
+      [
+        "Industrials",
+        5
+      ],
+      [
+        "Healthcare",
+        4
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_gary_palmer",
+    "name": "Gary Palmer",
+    "chamber": "house",
+    "party": "R",
+    "state": "AL",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 180,
+    "in_jurisdiction_trades": 42,
+    "in_jurisdiction_pct": 23.3,
+    "baseline_pct": 26.8,
+    "lift_pct": -3.5,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        47
+      ],
+      [
+        "Consumer Discretionary",
+        29
+      ],
+      [
+        "Technology",
+        23
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_greg_stanton",
+    "name": "Greg Stanton",
+    "chamber": "house",
+    "party": "D",
+    "state": "AZ",
+    "committee_sectors": [
+      "Industrials",
+      "Real Estate",
+      "Technology"
+    ],
+    "sector_tagged_trades": 189,
+    "in_jurisdiction_trades": 61,
+    "in_jurisdiction_pct": 32.3,
+    "baseline_pct": 36.3,
+    "lift_pct": -4.0,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        42
+      ],
+      [
+        "Healthcare",
+        38
+      ],
+      [
+        "Financials",
+        30
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_johnf_reed",
+    "name": "John F Reed",
+    "chamber": "senate",
+    "party": "D",
+    "state": "RI",
+    "committee_sectors": [
+      "Financials",
+      "Industrials",
+      "Real Estate",
+      "Technology"
+    ],
+    "sector_tagged_trades": 108,
+    "in_jurisdiction_trades": 51,
+    "in_jurisdiction_pct": 47.2,
+    "baseline_pct": 51.3,
+    "lift_pct": -4.1,
+    "top_traded_sectors": [
+      [
+        "Healthcare",
+        46
+      ],
+      [
+        "Technology",
+        37
+      ],
+      [
+        "Industrials",
+        14
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_joe_courtney",
+    "name": "Joe Courtney",
+    "chamber": "house",
+    "party": "D",
+    "state": "CT",
+    "committee_sectors": [
+      "Industrials"
+    ],
+    "sector_tagged_trades": 85,
+    "in_jurisdiction_trades": 6,
+    "in_jurisdiction_pct": 7.1,
+    "baseline_pct": 11.6,
+    "lift_pct": -4.5,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        20
+      ],
+      [
+        "Consumer Staples",
+        13
+      ],
+      [
+        "Technology",
+        9
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_roger_williams",
+    "name": "Roger Williams",
+    "chamber": "house",
+    "party": "R",
+    "state": "TX",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 23,
+    "in_jurisdiction_trades": 3,
+    "in_jurisdiction_pct": 13.0,
+    "baseline_pct": 17.6,
+    "lift_pct": -4.6,
+    "top_traded_sectors": [
+      [
+        "Communication Services",
+        6
+      ],
+      [
+        "Energy",
+        4
+      ],
+      [
+        "Healthcare",
+        4
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_susanm_collins",
+    "name": "Susan M Collins",
+    "chamber": "senate",
+    "party": "R",
+    "state": "ME",
+    "committee_sectors": [
+      "Healthcare",
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 266,
+    "in_jurisdiction_trades": 111,
+    "in_jurisdiction_pct": 41.7,
+    "baseline_pct": 46.5,
+    "lift_pct": -4.8,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        52
+      ],
+      [
+        "Industrials",
+        45
+      ],
+      [
+        "Technology",
+        34
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_jared_moskowitz",
+    "name": "Jared Moskowitz",
+    "chamber": "house",
+    "party": "D",
+    "state": "FL",
+    "committee_sectors": [
+      "Communication Services",
+      "Technology"
+    ],
+    "sector_tagged_trades": 342,
+    "in_jurisdiction_trades": 84,
+    "in_jurisdiction_pct": 24.6,
+    "baseline_pct": 29.7,
+    "lift_pct": -5.1,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        67
+      ],
+      [
+        "Healthcare",
+        66
+      ],
+      [
+        "Financials",
+        47
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_john_curtis",
+    "name": "John Curtis",
+    "chamber": "house",
+    "party": "R",
+    "state": "UT",
+    "committee_sectors": [
+      "Communication Services",
+      "Industrials",
+      "Materials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 262,
+    "in_jurisdiction_trades": 105,
+    "in_jurisdiction_pct": 40.1,
+    "baseline_pct": 46.5,
+    "lift_pct": -6.4,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        53
+      ],
+      [
+        "Financials",
+        50
+      ],
+      [
+        "Healthcare",
+        46
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_peter_welch",
+    "name": "Peter Welch",
+    "chamber": "house",
+    "party": "D",
+    "state": "VT",
+    "committee_sectors": [
+      "Communication Services",
+      "Consumer Staples",
+      "Financials",
+      "Healthcare",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 58,
+    "in_jurisdiction_trades": 35,
+    "in_jurisdiction_pct": 60.3,
+    "baseline_pct": 67.5,
+    "lift_pct": -7.2,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        15
+      ],
+      [
+        "Industrials",
+        14
+      ],
+      [
+        "Technology",
+        12
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_zoe_lofgren",
+    "name": "Zoe Lofgren",
+    "chamber": "house",
+    "party": "D",
+    "state": "CA",
+    "committee_sectors": [
+      "Communication Services",
+      "Technology"
+    ],
+    "sector_tagged_trades": 347,
+    "in_jurisdiction_trades": 77,
+    "in_jurisdiction_pct": 22.2,
+    "baseline_pct": 29.7,
+    "lift_pct": -7.5,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        74
+      ],
+      [
+        "Healthcare",
+        55
+      ],
+      [
+        "Technology",
+        45
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_michaelpatrick_guest",
+    "name": "Michael Patrick Guest",
+    "chamber": "house",
+    "party": "R",
+    "state": "MS",
+    "committee_sectors": [
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 46,
+    "in_jurisdiction_trades": 12,
+    "in_jurisdiction_pct": 26.1,
+    "baseline_pct": 33.7,
+    "lift_pct": -7.6,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        9
+      ],
+      [
+        "Consumer Discretionary",
+        9
+      ],
+      [
+        "Communication Services",
+        7
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_kimdr_schrier",
+    "name": "Kim Schrier",
+    "chamber": "house",
+    "party": "D",
+    "state": "WA",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 35,
+    "in_jurisdiction_trades": 6,
+    "in_jurisdiction_pct": 17.1,
+    "baseline_pct": 26.8,
+    "lift_pct": -9.7,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        18
+      ],
+      [
+        "Consumer Discretionary",
+        5
+      ],
+      [
+        "Healthcare",
+        4
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_mariaelvira_salazar",
+    "name": "Maria Elvira Salazar",
+    "chamber": "house",
+    "party": "R",
+    "state": "FL",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 39,
+    "in_jurisdiction_trades": 3,
+    "in_jurisdiction_pct": 7.7,
+    "baseline_pct": 17.6,
+    "lift_pct": -9.9,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        11
+      ],
+      [
+        "Industrials",
+        10
+      ],
+      [
+        "Consumer Discretionary",
+        5
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_robertj_wittman",
+    "name": "Robert J. Wittman",
+    "chamber": "house",
+    "party": "R",
+    "state": "VA",
+    "committee_sectors": [
+      "Energy",
+      "Industrials",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 181,
+    "in_jurisdiction_trades": 53,
+    "in_jurisdiction_pct": 29.3,
+    "baseline_pct": 40.2,
+    "lift_pct": -10.9,
+    "top_traded_sectors": [
+      [
+        "Healthcare",
+        39
+      ],
+      [
+        "Financials",
+        27
+      ],
+      [
+        "Consumer Discretionary",
+        21
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_garyc_peters",
+    "name": "Gary C Peters",
+    "chamber": "senate",
+    "party": "D",
+    "state": "MI",
+    "committee_sectors": [
+      "Communication Services",
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 56,
+    "in_jurisdiction_trades": 17,
+    "in_jurisdiction_pct": 30.4,
+    "baseline_pct": 41.3,
+    "lift_pct": -10.9,
+    "top_traded_sectors": [
+      [
+        "Healthcare",
+        9
+      ],
+      [
+        "Communication Services",
+        7
+      ],
+      [
+        "Consumer Staples",
+        7
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_john_fetterman",
+    "name": "John Fetterman",
+    "chamber": "senate",
+    "party": "D",
+    "state": "PA",
+    "committee_sectors": [
+      "Communication Services",
+      "Consumer Staples",
+      "Industrials",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 15,
+    "in_jurisdiction_trades": 6,
+    "in_jurisdiction_pct": 40.0,
+    "baseline_pct": 51.4,
+    "lift_pct": -11.4,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        8
+      ],
+      [
+        "Technology",
+        3
+      ],
+      [
+        "Communication Services",
+        3
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_john_mcguire",
+    "name": "John McGuire",
+    "chamber": "house",
+    "party": "R",
+    "state": "VA",
+    "committee_sectors": [
+      "Industrials"
+    ],
+    "sector_tagged_trades": 14,
+    "in_jurisdiction_trades": 0,
+    "in_jurisdiction_pct": 0.0,
+    "baseline_pct": 11.6,
+    "lift_pct": -11.6,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        9
+      ],
+      [
+        "Communication Services",
+        3
+      ],
+      [
+        "Consumer Staples",
+        1
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_john_boozman",
+    "name": "John Boozman",
+    "chamber": "senate",
+    "party": "R",
+    "state": "AR",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Healthcare",
+      "Industrials",
+      "Materials",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 179,
+    "in_jurisdiction_trades": 44,
+    "in_jurisdiction_pct": 24.6,
+    "baseline_pct": 37.0,
+    "lift_pct": -12.4,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        59
+      ],
+      [
+        "ETF \u2014 Broad",
+        26
+      ],
+      [
+        "Communication Services",
+        19
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_cscott_franklin",
+    "name": "C. Scott Franklin",
+    "chamber": "house",
+    "party": "R",
+    "state": "FL",
+    "committee_sectors": [
+      "Communication Services",
+      "Technology"
+    ],
+    "sector_tagged_trades": 71,
+    "in_jurisdiction_trades": 12,
+    "in_jurisdiction_pct": 16.9,
+    "baseline_pct": 29.7,
+    "lift_pct": -12.8,
+    "top_traded_sectors": [
+      [
+        "Consumer Discretionary",
+        11
+      ],
+      [
+        "Healthcare",
+        11
+      ],
+      [
+        "Consumer Staples",
+        11
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_morgan_mcgarvey",
+    "name": "Morgan McGarvey",
+    "chamber": "house",
+    "party": "D",
+    "state": "KY",
+    "committee_sectors": [
+      "Healthcare"
+    ],
+    "sector_tagged_trades": 20,
+    "in_jurisdiction_trades": 0,
+    "in_jurisdiction_pct": 0.0,
+    "baseline_pct": 12.8,
+    "lift_pct": -12.8,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        10
+      ],
+      [
+        "Consumer Discretionary",
+        4
+      ],
+      [
+        "Financials",
+        4
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_tim_moore",
+    "name": "Tim Moore",
+    "chamber": "house",
+    "party": "R",
+    "state": "NC",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 80,
+    "in_jurisdiction_trades": 3,
+    "in_jurisdiction_pct": 3.8,
+    "baseline_pct": 17.6,
+    "lift_pct": -13.8,
+    "top_traded_sectors": [
+      [
+        "Consumer Discretionary",
+        30
+      ],
+      [
+        "Communication Services",
+        14
+      ],
+      [
+        "Healthcare",
+        14
+      ]
+    ]
+  },
+  {
+    "filer_id": "senate_ronl_wyden",
+    "name": "Ron L Wyden",
+    "chamber": "senate",
+    "party": "D",
+    "state": "OR",
+    "committee_sectors": [
+      "Energy",
+      "Financials",
+      "Healthcare",
+      "Industrials",
+      "Materials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 214,
+    "in_jurisdiction_trades": 120,
+    "in_jurisdiction_pct": 56.1,
+    "baseline_pct": 70.5,
+    "lift_pct": -14.4,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        76
+      ],
+      [
+        "Consumer Discretionary",
+        44
+      ],
+      [
+        "Communication Services",
+        35
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_cleo_fields",
+    "name": "Cleo Fields",
+    "chamber": "house",
+    "party": "D",
+    "state": "LA",
+    "committee_sectors": [
+      "Financials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 163,
+    "in_jurisdiction_trades": 3,
+    "in_jurisdiction_pct": 1.8,
+    "baseline_pct": 17.6,
+    "lift_pct": -15.8,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        96
+      ],
+      [
+        "Communication Services",
+        42
+      ],
+      [
+        "Consumer Discretionary",
+        19
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_shri_thanedar",
+    "name": "Shri Thanedar",
+    "chamber": "house",
+    "party": "D",
+    "state": "MI",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Industrials",
+      "Materials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 28,
+    "in_jurisdiction_trades": 6,
+    "in_jurisdiction_pct": 21.4,
+    "baseline_pct": 43.7,
+    "lift_pct": -22.3,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        12
+      ],
+      [
+        "Consumer Discretionary",
+        6
+      ],
+      [
+        "Technology",
+        5
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_tony_wied",
+    "name": "Tony Wied",
+    "chamber": "house",
+    "party": "R",
+    "state": "WI",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Industrials",
+      "Materials",
+      "Real Estate"
+    ],
+    "sector_tagged_trades": 11,
+    "in_jurisdiction_trades": 0,
+    "in_jurisdiction_pct": 0.0,
+    "baseline_pct": 24.3,
+    "lift_pct": -24.3,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        10
+      ],
+      [
+        "Financials",
+        1
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_davidp_joyce",
+    "name": "David P. Joyce",
+    "chamber": "house",
+    "party": "R",
+    "state": "OH",
+    "committee_sectors": [
+      "Industrials",
+      "Technology"
+    ],
+    "sector_tagged_trades": 59,
+    "in_jurisdiction_trades": 5,
+    "in_jurisdiction_pct": 8.5,
+    "baseline_pct": 33.7,
+    "lift_pct": -25.2,
+    "top_traded_sectors": [
+      [
+        "ETF \u2014 Broad",
+        31
+      ],
+      [
+        "Financials",
+        12
+      ],
+      [
+        "Industrials",
+        5
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_rogerw_marshall",
+    "name": "Roger W. Marshall",
+    "chamber": "house",
+    "party": "R",
+    "state": "KS",
+    "committee_sectors": [
+      "Consumer Staples",
+      "Financials",
+      "Healthcare",
+      "Materials"
+    ],
+    "sector_tagged_trades": 42,
+    "in_jurisdiction_trades": 5,
+    "in_jurisdiction_pct": 11.9,
+    "baseline_pct": 37.8,
+    "lift_pct": -25.9,
+    "top_traded_sectors": [
+      [
+        "Technology",
+        15
+      ],
+      [
+        "Communication Services",
+        11
+      ],
+      [
+        "Consumer Discretionary",
+        11
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_kathy_castor",
+    "name": "Kathy Castor",
+    "chamber": "house",
+    "party": "D",
+    "state": "FL",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Industrials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 47,
+    "in_jurisdiction_trades": 14,
+    "in_jurisdiction_pct": 29.8,
+    "baseline_pct": 60.5,
+    "lift_pct": -30.7,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        33
+      ],
+      [
+        "Industrials",
+        5
+      ],
+      [
+        "Communication Services",
+        4
+      ]
+    ]
+  },
+  {
+    "filer_id": "house_nealpatrickmdfacs_dunn",
+    "name": "Neal Patrick MD, Facs Dunn",
+    "chamber": "house",
+    "party": "R",
+    "state": "FL",
+    "committee_sectors": [
+      "Communication Services",
+      "Energy",
+      "Healthcare",
+      "Industrials",
+      "Technology",
+      "Utilities"
+    ],
+    "sector_tagged_trades": 11,
+    "in_jurisdiction_trades": 3,
+    "in_jurisdiction_pct": 27.3,
+    "baseline_pct": 60.5,
+    "lift_pct": -33.2,
+    "top_traded_sectors": [
+      [
+        "Financials",
+        8
+      ],
+      [
+        "Utilities",
+        2
+      ],
+      [
+        "Technology",
+        1
+      ]
+    ]
+  }
+]

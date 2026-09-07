@@ -1,0 +1,15 @@
+# Large third-party data pulled from kadoa-org/congress-trading-monitor at
+# analysis time. Re-fetchable, not source -- don't commit multi-MB dumps.
+raw_data/
+output/*
+!output/top10_matches_5d.json
+!output/top10_matches_10d.json
+!output/top10_matches_15d.json
+!output/top10_matches_20d.json
+!output/permutation_5d.json
+!output/permutation_10d.json
+!output/permutation_15d.json
+!output/permutation_20d.json
+!output/performance_leaderboard.json
+!output/committee_conflicts.json
+__pycache__/

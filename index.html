@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trump Trade Tracker (Paper Trading)</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <div>
+    <h1>Trump Trade Tracker</h1>
+    <div class="subtitle">Paper trading sim &middot; $100 starting cash &middot; not real money, not financial advice</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle">Toggle theme</button>
+</header>
+
+<div class="stat-bar">
+  <div class="stat-tile">
+    <div class="label">Cash</div>
+    <div class="value" id="stat-cash">$100.00</div>
+  </div>
+  <div class="stat-tile">
+    <div class="label">Holdings Value</div>
+    <div class="value" id="stat-holdings">$0.00</div>
+  </div>
+  <div class="stat-tile">
+    <div class="label">Total Value</div>
+    <div class="value" id="stat-total">$100.00</div>
+  </div>
+  <div class="stat-tile">
+    <div class="label">Total P&amp;L</div>
+    <div class="value" id="stat-pnl">$0.00 (+0.00%)</div>
+  </div>
+</div>
+
+<nav class="tabs">
+  <button data-tab="portfolio" class="active">Portfolio</button>
+  <button data-tab="watchlist">Trump Watchlist</button>
+  <button data-tab="congress">Congress</button>
+  <button data-tab="timeline">History / Timeline</button>
+  <button data-tab="journal">Signals / Journal</button>
+  <button data-tab="settings">Settings</button>
+</nav>
+
+<main>
+
+  <!-- PORTFOLIO -->
+  <section class="panel active" id="panel-portfolio">
+    <div class="card">
+      <h2>Place a paper trade</h2>
+      <p class="hint">Fetch a live price (needs a Finnhub API key set in Settings) or type one in yourself.</p>
+      <div class="form-row">
+        <div class="field">
+          <label>Symbol</label>
+          <input id="trade-symbol" placeholder="DJT" style="width:90px; text-transform:uppercase;" />
+        </div>
+        <div class="field">
+          <label>Shares</label>
+          <input id="trade-shares" type="number" min="0" step="any" placeholder="1" style="width:90px;" />
+        </div>
+        <div class="field">
+          <label>Price ($)</label>
+          <input id="trade-price" type="number" min="0" step="any" placeholder="0.00" style="width:110px;" />
+        </div>
+        <button class="btn secondary" id="btn-fetch-price">Fetch price</button>
+        <button class="btn" id="btn-buy">Buy</button>
+        <button class="btn danger" id="btn-sell">Sell</button>
+      </div>
+      <p class="hint" id="trade-status" style="margin-top:10px;"></p>
+    </div>
+
+    <div class="card">
+      <h2>Portfolio value over time</h2>
+      <div class="chart-wrap" id="chart-wrap">
+        <div class="chart-tooltip" id="chart-tooltip"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>Holdings</h2>
+        <table>
+          <thead><tr><th>Symbol</th><th>Shares</th><th>Avg Cost</th><th>Last</th><th>Value</th><th>P&amp;L</th></tr></thead>
+          <tbody id="holdings-body"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Trade history</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Side</th><th>Symbol</th><th>Qty @ Price</th><th>Total</th></tr></thead>
+          <tbody id="tx-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCHLIST -->
+  <section class="panel" id="panel-watchlist">
+    <div class="card">
+      <h2>Trump-linked watchlist</h2>
+      <p class="hint" id="watchlist-warning" style="display:none; color: var(--warning);">
+        No Finnhub API key set -- prices won't load. Add a free key in Settings.
+      </p>
+      <p class="hint">
+        "family" = a stock Trump/his family actually holds an equity stake in (currently just DJT).
+        "policy" = stocks that historically react to Trump policy news (tariffs, defense, crypto) &mdash; not companies he owns.
+      </p>
+      <div id="watchlist-body"></div>
+    </div>
+  </section>
+
+  <!-- CONGRESS -->
+  <section class="panel" id="panel-congress">
+    <div class="card">
+      <h2>Congress leaderboard</h2>
+      <p class="hint">
+        Ranked by whatever's set as the active metric in <strong>Settings &rarr; Tracking config</strong>
+        (currently: <span id="congress-active-config">--</span>). This comes from a one-time offline analysis
+        (<code>analysis/RESULTS.md</code> in the repo), not a live feed &mdash; re-run the analysis scripts and
+        re-export to refresh it.
+      </p>
+      <p class="hint" id="congress-metric-explainer" style="color:var(--text-secondary);"></p>
+      <table>
+        <thead><tr id="congress-table-head"></tr></thead>
+        <tbody id="congress-leaderboard-body"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Followed politicians</h2>
+      <p class="hint">
+        Their most recently disclosed trades (still subject to STOCK Act filing lag &mdash; up to 45 days after the
+        actual trade, sometimes longer). Not real-time. Use "Quick buy" to paper-trade it yourself, or "Log to journal"
+        to just note it.
+      </p>
+      <div id="followed-body"></div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="panel" id="panel-timeline">
+    <div class="card">
+      <h2>History: financial disclosures &amp; market-moving events</h2>
+      <p class="hint">
+        The presidency has no real-time trade disclosure requirement (that's Congress, under the STOCK Act) &mdash;
+        only an annual asset-range disclosure. This is a hand-curated, best-effort timeline of public events, not a
+        transaction ledger. Verify dates independently before acting on them. Edit <code>js/data.js</code> to extend it.
+      </p>
+      <div id="timeline-body"></div>
+    </div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section class="panel" id="panel-journal">
+    <div class="card">
+      <h2>Log a signal</h2>
+      <p class="hint">This is the automated-tracking gap filled manually: when you see Trump-driven news, log it here, then go paper-trade it on the Portfolio tab.</p>
+      <div class="form-row">
+        <div class="field" style="flex: 1 1 240px;">
+          <label>Title</label>
+          <input id="journal-title" placeholder="e.g. Announced 25% tariff on steel imports" style="width:100%;" />
+        </div>
+        <div class="field">
+          <label>Related symbol (optional)</label>
+          <input id="journal-symbol" placeholder="X" style="width:100px; text-transform:uppercase;" />
+        </div>
+      </div>
+      <div class="form-row" style="margin-top:10px;">
+        <div class="field" style="flex:1;">
+          <label>Notes</label>
+          <textarea id="journal-note" placeholder="What happened, what you expect it to do to the price, whether you traded on it..."></textarea>
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        <button class="btn" id="btn-journal-add">Add entry</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Journal</h2>
+      <div id="journal-body"></div>
+    </div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="panel" id="panel-settings">
+    <div class="card">
+      <h2>Live prices (optional)</h2>
+      <p class="hint">
+        Get a free API key at finnhub.io (no cost, generous free tier) to enable live quote fetching.
+        Without a key you can still trade by typing prices in manually. The key is stored only in this browser's
+        local storage &mdash; it is never sent anywhere except directly to Finnhub.
+      </p>
+      <div class="form-row">
+        <div class="field" style="flex:1;">
+          <label>Finnhub API key</label>
+          <input id="settings-key" placeholder="paste key here" style="width:100%;" />
+        </div>
+        <button class="btn" id="btn-save-settings">Save</button>
+      </div>
+      <p class="hint" id="settings-status" style="margin-top:8px;"></p>
+    </div>
+
+    <div class="card">
+      <h2>Tracking config</h2>
+      <p class="hint">
+        Controls how the Congress tab ranks/filters politicians, and which stocks show up as "in scope" for that
+        ranking. Change the metric to see a completely different leaderboard &mdash; they measure different things
+        and don't agree on who's interesting (see <code>analysis/RESULTS.md</code>).
+      </p>
+      <div class="form-row">
+        <div class="field">
+          <label>Ranking metric</label>
+          <select id="config-rank-by" style="width:230px;">
+            <option value="timing">Timing match vs. Trump (raw)</option>
+            <option value="permutation">Timing match, chance-corrected</option>
+            <option value="performance">Trade performance (returns)</option>
+            <option value="committee">Committee/sector lift</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Match window (days)</label>
+          <select id="config-window" style="width:110px;">
+            <option value="5">&plusmn;5</option>
+            <option value="10">&plusmn;10</option>
+            <option value="15">&plusmn;15</option>
+            <option value="20">&plusmn;20</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Chamber</label>
+          <select id="config-chamber" style="width:110px;">
+            <option value="all">All</option>
+            <option value="house">House</option>
+            <option value="senate">Senate</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Party</label>
+          <select id="config-party" style="width:110px;">
+            <option value="all">All</option>
+            <option value="D">Democrat</option>
+            <option value="R">Republican</option>
+            <option value="I">Independent</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Min. own trades</label>
+          <input id="config-min-trades" type="number" min="0" step="1" value="0" style="width:90px;" />
+        </div>
+        <button class="btn" id="btn-save-config">Save</button>
+      </div>
+      <p class="hint" id="config-status" style="margin-top:8px;"></p>
+      <p class="hint" style="margin-top:14px;">
+        <strong>Followed politicians</strong> (<span id="followed-count">0</span>):
+        <span id="followed-list-inline">none yet &mdash; follow someone from the Congress tab.</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Data</h2>
+      <div class="form-row">
+        <button class="btn secondary" id="btn-export">Export portfolio (.json)</button>
+        <div class="field">
+          <label>Import portfolio</label>
+          <input type="file" id="import-file" accept="application/json" />
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Reset</h2>
+      <p class="hint">Wipes holdings and trade history back to a fresh $100. Journal and API key are kept.</p>
+      <button class="btn danger" id="btn-reset-portfolio">Reset portfolio to $100</button>
+    </div>
+  </section>
+
+</main>
+
+<p class="footer-note">Paper trading only. No real orders are placed. Nothing here is financial advice.</p>
+
+<script src="js/data.js"></script>
+<script src="js/congress-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
