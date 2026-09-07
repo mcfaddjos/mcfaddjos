@@ -1,0 +1,29 @@
+[
+  {
+    "id": "spot-1",
+    "name": "Lake Example North Shore",
+    "lat": 39.0997,
+    "lng": -94.5786,
+    "type": "lake",
+    "species": ["Largemouth Bass", "Bluegill", "Crappie"],
+    "notes": "Public access boat ramp, good shoreline casting near the reeds."
+  },
+  {
+    "id": "spot-2",
+    "name": "River Bend Access",
+    "lat": 39.1150,
+    "lng": -94.6275,
+    "type": "river",
+    "species": ["Catfish", "Smallmouth Bass"],
+    "notes": "Wade fishing below the low-head dam, watch for current after rain."
+  },
+  {
+    "id": "spot-3",
+    "name": "Pier Point Marina",
+    "lat": 39.0825,
+    "lng": -94.5502,
+    "type": "pier",
+    "species": ["Crappie", "White Bass"],
+    "notes": "Public pier, lighted at night, good for evening fishing."
+  }
+]
